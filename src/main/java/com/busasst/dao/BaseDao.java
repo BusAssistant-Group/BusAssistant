@@ -61,6 +61,51 @@ public class BaseDao {
     }
 
     /**
+     * 查询得到一个对象,如果有多个则返回其中的第一个对象
+     *
+     * @param hql
+     * @param params
+     * @return
+     */
+    public Object queryForObject(String hql, Object[] params)
+    {
+        Query query = getSession().createQuery(hql);
+        if (params != null && params.length > 0)
+        {
+            for (int i = 0; i < params.length; i++)
+            {
+                query.setParameter(i, params[i]);
+            }
+        }
+        return query.uniqueResult();
+    }
+
+    /**
+     * 查询得到指定类型的对象
+     *
+     * @param hql
+     * @param clazz
+     * @param params
+     * @return
+     */
+    public <T> T queryForObject(String hql, Object[] params, Class<T> clazz)
+    {
+        Object result = this.queryForObject(hql, params);
+        if (result == null)
+        {
+            return null;
+        }
+        else if (clazz.isInstance(result))
+        {
+            return clazz.cast(result);
+        }
+        else
+        {
+            throw new RuntimeException("Object:" + result + " cannot cast to " + clazz);
+        }
+    }
+
+    /**
      * 更新一个对象
      *
      * @param object
