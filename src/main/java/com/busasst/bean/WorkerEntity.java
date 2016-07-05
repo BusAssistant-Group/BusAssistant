@@ -11,6 +11,9 @@ public class WorkerEntity {
     private int workerId;
     private Integer rouId;
     private Integer staId;
+    private String name;
+    private String dept;
+    private String group;
 
     @Id
     @Column(name = "worker_id")
@@ -62,5 +65,35 @@ public class WorkerEntity {
         result = 31 * result + (rouId != null ? rouId.hashCode() : 0);
         result = 31 * result + (staId != null ? staId.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "dept")
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    @Basic
+    @Column(name = "group")
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }
