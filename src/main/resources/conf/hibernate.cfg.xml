@@ -17,8 +17,15 @@
 		<property name="connection.isolation">2</property>
 
 		<property name="connection.characterEncoding">utf8</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/db_xst_new</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/db_bus</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<mapping class="com.busasst.bean.AdminEntity"/>
+		<mapping class="com.busasst.bean.BusEntity"/>
+		<mapping class="com.busasst.bean.BusRouteEntity"/>
+		<mapping class="com.busasst.bean.RouteEntity"/>
+		<mapping class="com.busasst.bean.StaRouEntity"/>
+		<mapping class="com.busasst.bean.StationEntity"/>
+		<mapping class="com.busasst.bean.WorkerEntity"/>
 
 	</session-factory>
 </hibernate-configuration>
