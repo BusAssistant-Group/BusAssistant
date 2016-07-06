@@ -18,6 +18,21 @@ public class BusEntity {
     private String drivelicense;
     private String vehiclelicense;
 
+    public BusEntity(int busId, Integer number, String brand, Integer seatnum, Timestamp registdate, Timestamp insurancedate, String drivelicense, String vehiclelicense) {
+        this.busId = busId;
+        this.number = number;
+        this.brand = brand;
+        this.seatnum = seatnum;
+        this.registdate = registdate;
+        this.insurancedate = insurancedate;
+        this.drivelicense = drivelicense;
+        this.vehiclelicense = vehiclelicense;
+    }
+
+    public BusEntity(){
+
+    }
+
     @Id
     @Column(name = "bus_id")
     public int getBusId() {
