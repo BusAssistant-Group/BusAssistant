@@ -15,6 +15,18 @@ public class WorkerEntity {
     private String dept;
     private String group;
 
+    public WorkerEntity(int workerId, Integer rouId, Integer staId, String name, String dept, String group) {
+        this.workerId = workerId;
+        this.rouId = rouId;
+        this.staId = staId;
+        this.name = name;
+        this.dept = dept;
+        this.group = group;
+    }
+
+    public WorkerEntity(){
+    }
+
     @Id
     @Column(name = "worker_id")
     public int getWorkerId() {

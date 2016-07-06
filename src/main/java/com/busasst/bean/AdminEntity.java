@@ -13,6 +13,17 @@ public class AdminEntity {
     private String password;
     private Integer authority;
 
+    public AdminEntity(int adminId, String username, String password, Integer authority) {
+        this.adminId = adminId;
+        this.username = username;
+        this.password = password;
+        this.authority = authority;
+    }
+
+    public AdminEntity(){
+
+    }
+
     @Id
     @Column(name = "admin_id")
     public int getAdminId() {
