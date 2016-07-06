@@ -15,6 +15,19 @@ public class StationEntity {
     private String longla;
     private String address;
 
+    public StationEntity(int staId, String name, Integer wokerSum, Integer routeSum, String longla, String address) {
+        this.staId = staId;
+        this.name = name;
+        this.wokerSum = wokerSum;
+        this.routeSum = routeSum;
+        this.longla = longla;
+        this.address = address;
+    }
+
+    public StationEntity(){
+
+    }
+
     @Id
     @Column(name = "sta_id")
     public int getStaId() {

@@ -15,6 +15,19 @@ public class RouteEntity {
     private Double riderate;
     private String distance;
 
+    public RouteEntity(int rouId, String name, Integer workerSum, Integer stationSum, Double riderate, String distance) {
+        this.rouId = rouId;
+        this.name = name;
+        this.workerSum = workerSum;
+        this.stationSum = stationSum;
+        this.riderate = riderate;
+        this.distance = distance;
+    }
+
+    public RouteEntity(){
+
+    }
+
     @Id
     @Column(name = "rou_id")
     public int getRouId() {

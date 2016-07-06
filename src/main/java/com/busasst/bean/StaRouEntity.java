@@ -12,6 +12,16 @@ public class StaRouEntity {
     private Integer staId;
     private Integer rouId;
 
+    public StaRouEntity(int srId, Integer staId, Integer rouId) {
+        this.srId = srId;
+        this.staId = staId;
+        this.rouId = rouId;
+    }
+
+    public StaRouEntity(){
+
+    }
+
     @Id
     @Column(name = "sr_id")
     public int getSrId() {

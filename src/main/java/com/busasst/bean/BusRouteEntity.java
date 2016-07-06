@@ -14,6 +14,17 @@ public class BusRouteEntity {
     private Integer rouId;
     private Timestamp time;
 
+    public BusRouteEntity(int brId, Integer busId, Integer rouId, Timestamp time) {
+        this.brId = brId;
+        this.busId = busId;
+        this.rouId = rouId;
+        this.time = time;
+    }
+
+    public BusRouteEntity(){
+
+    }
+
     @Id
     @Column(name = "br_id")
     public int getBrId() {
