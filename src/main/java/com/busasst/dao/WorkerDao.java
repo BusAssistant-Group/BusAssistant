@@ -1,7 +1,9 @@
 package com.busasst.dao;
 
-import com.busasst.bean.WorkerEntity;
+import com.busasst.bean.MessageStatus;
+import com.busasst.entity.WorkerEntity;
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -9,15 +11,17 @@ import java.util.List;
 /**
  * Created by tsj on 16-7-6.
  */
+@Repository("workDao")
 public class WorkerDao extends BaseDao {
+
     /**
-     *
      * @param id 当前对象的主键
      * @return workerEntity对象
      */
     public WorkerEntity getById(int id){
         return get(WorkerEntity.class,id);
     }
+
 
     /**
      * WorkerEntity的全部属性
@@ -28,11 +32,32 @@ public class WorkerDao extends BaseDao {
      * @param dept
      * @param group
      */
+    public MessageStatus insert(int workerId, int rouId, int staId, String name, String dept, String group){
+        if(!exists(workerId)){
+            WorkerEntity workerEntity = new WorkerEntity(workerId,Integer.valueOf(rouId),
+                    Integer.valueOf(staId),name,dept,group);
 
-    public void insert(int workerId, Integer rouId, Integer staId, String name, String dept, String group){
-        WorkerEntity workerEntity = new WorkerEntity(workerId,rouId,staId,name,dept,group);
-        save(workerEntity);
+            save(workerEntity);
+            return new MessageStatus("添加成功！",1);
+        }
+
+        return new MessageStatus("该员工已存在！",0);
     }
+
+
+
+
+    public boolean exists(int workerId){
+        String hql = "from WorkerEntity as worker " +
+                "where worker.workerId="+workerId;
+        Query query = query(hql);
+        if(query.list().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
+
 
     /**
      * 通过某列等于某值来定位一条记录
@@ -45,8 +70,8 @@ public class WorkerDao extends BaseDao {
         query.executeUpdate();
     }
 
+
     /**
-     *
      * @param key 要更新的字段
      * @param value 要更新的字段值
      * @param column 筛选条件字段
@@ -58,17 +83,22 @@ public class WorkerDao extends BaseDao {
         query.executeUpdate();
     }
 
+
     /**
-     *
      * @param key 筛选条件字段
      * @param value 筛选条件字段值
      * @return 查询得到的该对象组成的list
      */
     public List<WorkerEntity> getByX(String key,String value){
-        String hql = "from UserEntity as user where user."+key+"=?";
+        String hql = "from WorkerEntity as worker where worker."+key+"=?";
         Query query = query(hql);
         query.setString(0, value);
         List<WorkerEntity> results = query.list();
         return results;
+    }
+
+
+    public List<WorkerEntity> getAllWorker(){
+        return getAll("WorkerEntity");
     }
 }

@@ -1,4 +1,4 @@
-package com.busasst.bean;
+package com.busasst.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
