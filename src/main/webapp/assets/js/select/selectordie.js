@@ -42,7 +42,7 @@
 
                 return this.each(function (i) {
 
-                    if (1 ) {
+                    if ( !$(this).parent().hasClass("sod_select") ) {
                         var $select                = $(this),
                             $settingsId            = $_settings.customID ? $_settings.customID : ( $select.data("custom-id") ? $select.data("custom-id") : $_settings.customID ),
                             $settingsClass         = $_settings.customClass ? $_settings.customClass : ( $select.data("custom-class") ? $select.data("custom-class") : $_settings.customClass ),

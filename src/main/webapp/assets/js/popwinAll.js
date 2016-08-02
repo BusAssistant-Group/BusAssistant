@@ -17,37 +17,37 @@
     //定义Popwin的方法
     Popwin.prototype = {
         /*input_init:function(){
-            //隐藏关闭
-            $(document).on("click",".popwin .popclose",function(event){
-                event.stopPropagation();
-                $('.popwin').addClass("bounceOut animated");
-                $(".mask").fadeOut(500);
-                $('.popwin').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',function(){
-                    $(".mask").remove();
-                    $(this).remove();
-                });
-            })
-            //取消
-            $(document).on("click",".popwin .cancel",function(event){
-                event.stopPropagation();
-                $('.popwin').addClass("bounceOut animated");
-                $(".mask").fadeOut(500);
-                $('.popwin').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',function(){
-                    $(".mask").remove();
-                    $(this).remove();
-                });
-            })
-            //确定
-            $(document).on("click",".popwin .confirm",function(event){
-                event.stopPropagation();
-                $('.popwin').addClass("bounceOut animated");
-                $(".mask").fadeOut(500);
-                $('.popwin').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',function(){
-                    $(".mask").remove();
-                    $(this).remove();
-                });
-            })
-        },*/
+         //隐藏关闭
+         $(document).on("click",".popwin .popclose",function(event){
+         event.stopPropagation();
+         $('.popwin').addClass("bounceOut animated");
+         $(".mask").fadeOut(500);
+         $('.popwin').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',function(){
+         $(".mask").remove();
+         $(this).remove();
+         });
+         })
+         //取消
+         $(document).on("click",".popwin .cancel",function(event){
+         event.stopPropagation();
+         $('.popwin').addClass("bounceOut animated");
+         $(".mask").fadeOut(500);
+         $('.popwin').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',function(){
+         $(".mask").remove();
+         $(this).remove();
+         });
+         })
+         //确定
+         $(document).on("click",".popwin .confirm",function(event){
+         event.stopPropagation();
+         $('.popwin').addClass("bounceOut animated");
+         $(".mask").fadeOut(500);
+         $('.popwin').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',function(){
+         $(".mask").remove();
+         $(this).remove();
+         });
+         })
+         },*/
         /*        input: function() {
          var html=template('popwin-input');
          $('body').prepend(html);
@@ -57,18 +57,19 @@
          this.input_init();
 
          },*/
+        /**
+         * 静态弹框
+         * @param message
+         * @param status
+         */
         tips:function(message,status){
             var self=this;
-            var expression;
-            if(status==1){
-                expression="smile";
-            }else if(status==0){
-                expression="cry";
-            }
+
             console.log("调用了tips方法");
-            var popowin_tips=['<div class="popwin_tips">',
-                '               <div class="content"><div class="pull-left"><i class="iconfont icon-'+expression+'"></i></div><div class="pull-left message"><span>'+message+'</span></div><div class="clearfix"></div></div>',
+            var popowin_tips=['<div class="popwin_tips black">',
+                '               <div class="content"><div class="pull-left"><i class="iconfont icon-'+status+'"></i></div><div class="pull-left message"><span>'+message+'</span></div><div class="clearfix"></div></div>',
                 '           </div>'].join("");
+
             var html=popowin_tips;
             console.log("开始插入tips");
             $('body').prepend(html);

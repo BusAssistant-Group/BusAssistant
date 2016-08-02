@@ -2,6 +2,15 @@
  * Created by Administrator on 2016/5/13.
  */
 <!--文件夹视图-->
+//引入弹窗依赖js
+require.config({
+    paths: {
+        "popwin": "popwin"
+    }
+});
+//require(['popwin'], function (popwin){
+//
+//});
 
 $(document).ready(function(){
     var $parent = $('#divall'),
@@ -15,17 +24,12 @@ $(document).ready(function(){
         namehide='#divall li input.changename',
         $changename = $('#changename');
 
-  //  $removenews.hide();
-    //新建,,通过
+    $removenews.hide();
+    //新建
     $carry.on('click' , function(){
-        popwin();
-        //alert('确定新建文件夹？')
-        //setTimeout(
-        //    function(){
-        //        $parent.append("<li><input type='text' \class='changename'\ value='新建文件夹'/></li>");
-        //    },500);
+        popwin();                //调用弹出窗口
     });
-    //清空,,通过
+    //清空
     $removeall.on('click' , function(){
         alert('确定清空所有文件夹？')
         setTimeout(
@@ -33,7 +37,7 @@ $(document).ready(function(){
                 $parent.empty();
 
             },500);
-    });
+    }); //新文件夹不起作用！！
     //变色
     $(document).on("click",bgcolor,function(event){         //对应bgcolor
         var btns = document.getElementById('removebutton');
@@ -42,15 +46,8 @@ $(document).ready(function(){
         $(this).addClass('bgclocrc').siblings().removeClass('bgclocrc');
         $(this).attr("id",'remove').siblings().attr('id','');
         $( " input[type=text] ").attr("id",'namecc').siblings().attr('id',' ');
-
-
-
-
         btns.onclick = function(){//js 调用
-            alert('确定删除文件夹吗？');
-
-            var curId=$("#remove").attr("data-id");
-            $.post("/erudition/admin/filecollect/delete",{cateid:curId});
+            alert('确定删除文件夹？');
             setTimeout(
                 function(){
                     if($bgcolor.hasClass('bgclocrc'))
@@ -136,68 +133,19 @@ $(document).ready(function(){
     });
     //修改文件名
     $(document).on("focus",namehide,function(event){         //>>>>>>>>>>>>>>>>>>>>>>可优化为Jquery对象？
+        event.stopPropagation();
         $(this).css('border','1px solid #3498DB');
         $(this).val('');
     })
     $(document).on("blur",namehide,function(event){
-
         $(this).css('border','none');
-        //if( $(this).val() == ""){
-        //    $(this).val('新建文件夹');
-        //}else{
-        //    // $(this).parent().find('span').text() = $(this).value;
-        //}
+        alert("确定修改文件名?");
+        if( $(this).val() == ""){
+            $(this).val('新建文件夹');
+        }else{
+             //$(this).parent().find('span').text() = $(this).value;
+        }
     });
-
-    /////////////////////////////////////////////!!!!!!
-    //////一定要封装成一个插件！！！！popwin
-    /////////////////////////////////////////////////
-    //调用弹窗方法
-    function popwin(){
-        //调用模板
-        var html=template('popwin-template');
-        $('body').prepend(html);
-        //开始动画
-        $('.mask').fadeIn(300);
-        $('.popwin').addClass("bounceIn animated");
-    };
-    //隐藏关闭
-    $(document).on("click",".popwin .popclose",function(event){
-        event.stopPropagation();
-
-        $('.popwin').addClass("bounceOut animated");
-        $(".mask").fadeOut(500);
-        $(".popwin").one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-            $(".mask").remove();
-            $(this).remove();
-        });
-    })
-    //取消
-    $(document).on("click",".popwin .cancel",function(event){
-        event.stopPropagation();
-
-        $('.popwin').addClass("bounceOut animated");
-        $(".mask").fadeOut(500);
-        $(".popwin").one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-            $(".mask").remove();
-            $(this).remove();
-        });
-    })
-    //确定
-    $(document).on("click",".popwin .confirm",function(event){
-        event.stopPropagation();
-
-        $('.popwin').addClass("bounceOut animated");
-        $(".mask").fadeOut(500);
-        $(".popwin").one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-            $(".mask").remove();
-            $(this).remove();
-            setTimeout(
-                function(){
-                    $parent.append("<li><input type='text' \class='changename'\ value='新建文件夹'/></li>");
-                },300);
-        });
-    })
 
 
 });

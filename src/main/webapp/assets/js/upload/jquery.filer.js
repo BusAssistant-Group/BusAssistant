@@ -433,7 +433,7 @@
 								formData.append(k, n.uploadFile.data[k])
 							}
 						}
-						//f._ajax.send(el, formData, f._itFc);
+						f._ajax.send(el, formData, f._itFc);
 					},
 					_ajax: {
 						send: function(el, formData, c) {
