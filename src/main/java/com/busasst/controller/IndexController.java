@@ -18,6 +18,6 @@ public class IndexController {
     public String index(Model model) {
 
         System.out.println("IndexController");
-        return "index";
+        return "login";
     }
 }
