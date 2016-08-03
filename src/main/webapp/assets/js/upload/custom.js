@@ -61,8 +61,7 @@ $(document).ready(function(){
             },
             dragDrop: {},
             uploadFile: {
-                //url: "./php/upload.php",
-                url: "/erudition/admin/file/upload",
+                url: "./php/upload.php",
                 data: {},
                 type: 'POST',
                 enctype: 'multipart/form-data',
@@ -87,7 +86,7 @@ $(document).ready(function(){
             },
             onRemove: function(itemEl, file, id, listEl, boxEl, newInputEl, inputEl){
                 var file = file.name;
-                //$.post('./php/remove_file.php', {file: file});
+                $.post('./php/remove_file.php', {file: file});
             },
         };
     
