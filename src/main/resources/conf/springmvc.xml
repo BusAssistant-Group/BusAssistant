@@ -38,7 +38,7 @@
     <context:property-placeholder location="classpath:conf/config.properties"/>
 
     <!-- 静态资源 -->
-    <mvc:resources location="/assets/" mapping="/assets/**"/>
+    <mvc:resources location="/z/" mapping="/assets/**"/>
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
