@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Erudition</title>
+    <title>BusAssistant</title>
     <link rel="stylesheet" href="${assetsPath}/css/app.min.css"/>
     <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
     <script src="//cdn.bootcss.com/jqueryui/1.11.0/jquery-ui.js"></script>    <!--用于颜色动画，类加载动画-->

@@ -15,10 +15,10 @@ public class GlobalVariable {
             this.map = new HashMap<String , String>();
         }
         // TODO 修改为读取config.ini
-        this.map.put("assetsPath", "/xst/assets");
-        this.map.put("uploadFilePath", "/usr/local/xst");
-        this.map.put("rootPath", "/xst");
-        this.map.put("requestPath","http://localhost:8080/xst");
+        this.map.put("assetsPath", "/busasst/assets");
+        this.map.put("uploadFilePath", "/usr/local/busasst");
+        this.map.put("rootPath", "/busasst");
+        this.map.put("requestPath","http://localhost:8080/busasst");
     }
 
     public Map<String , String> getAll() {
