@@ -20,11 +20,11 @@
                                 expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <!-- 拦截器 -->
-    <!--<mvc:interceptors>-->
+     <!--拦截器 -->
+    <mvc:interceptors>
 
-        <!--&lt;!&ndash; 全局变量注入拦截器 &ndash;&gt;-->
-        <!--<bean class="com.xst.interceptor.FirstInterceptor"/>-->
+        <!-- 全局变量注入拦截器 -->
+        <bean class="com.busasst.interceptor.FirstInterceptor"/>
 
         <!--<mvc:interceptor>-->
             <!--<mvc:mapping path="/admin/*"/>-->
@@ -32,7 +32,7 @@
         <!--</mvc:interceptor>-->
 
 
-    <!--</mvc:interceptors>-->
+    </mvc:interceptors>
 
     <!-- 系统配置 -->
     <context:property-placeholder location="classpath:conf/config.properties"/>

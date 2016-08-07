@@ -50,6 +50,8 @@
     jQuery(document).ready(function () {
         jQuery("#jquery-accordion-menu").jqueryAccordionMenu();   //启用插件   jQuery等同于$
 
+
+
     });
 
     $(function(){
@@ -146,7 +148,7 @@
 
          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">编辑车辆信息</h4>
+            <h4 class="modal-title" id="myModalLabel1">编辑车辆信息</h4>
          </div>
 
          <div class="modal-body">
@@ -191,7 +193,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="add_new_car" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="add_new_car" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
    <div class="modal-dialog">
       <div class="modal-content">
 
