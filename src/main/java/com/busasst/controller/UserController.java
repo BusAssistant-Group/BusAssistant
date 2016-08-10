@@ -128,4 +128,14 @@ public class UserController {
         httpSession.invalidate();
         return "redirect:/index";
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "lineManage";
+    }
+
+    @RequestMapping(value = "/test2", method = RequestMethod.GET)
+    public String test2() {
+        return "line-map";
+    }
 }
