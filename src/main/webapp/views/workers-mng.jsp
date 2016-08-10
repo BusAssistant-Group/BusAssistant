@@ -94,7 +94,7 @@
                         <td>${worker.rouId}</td>
                         <td>
                             <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_worker_info">编辑</button>
-                            <button class="btn btn-danger btn-slim" type="button">删除</button>
+                            <button id="delete-worker" datavalue="${worker.workerId}" class="btn btn-danger btn-slim deleteBt" type="button">删除</button>
                         </td>
                     </tr>
                     </tbody>
@@ -205,9 +205,13 @@
 
 
 <script type="text/javascript">
-    function deleteWorker(id){
-        var xml
-    }
+    $('.deleteBt').click(function(){
+        var id=$(this).attr("datavalue");
+        console.log(id);
+        $.post("${rootPath}/worker/delete/"+id,function(data){
+           location.reload(true);
+        })
+    })
 
 </script>
 
