@@ -5,6 +5,7 @@ import com.busasst.entity.WorkerEntity;
 import com.busasst.dao.WorkerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,9 +21,10 @@ public class WorkerController {
     @Autowired
     private WorkerDao workerDao;
 
-    @RequestMapping("/")
-    public List<WorkerEntity> list(){
-        return workerDao.getAllWorker();
+    @RequestMapping("/list")
+    public String list(Model model){
+        model.addAttribute("workers",workerDao.getAllWorker());
+        return "workers-mng";
     }
 
 

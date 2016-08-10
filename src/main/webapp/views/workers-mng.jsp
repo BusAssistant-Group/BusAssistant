@@ -64,45 +64,8 @@
 <body>
 <div class="mask"></div>
 <div class="main flex-row">
-    <div class="flex-2">
-        <div class="nav">
-            <div id="jquery-accordion-menu" class="jquery-accordion-menu white">
-                <ul id="demo-list" class="nav-list">
-                    <div class="logo">
-                        BusAssistant
-                    </div>
-                    <li class="active"><a href="workers-mng.html"><i class="fa fa-user-plus"></i>员工信息管理</a></li>
-                    <!--<li><a href="cars-mng.html"><i class="fa fa-bus"></i>车辆信息管理 </a><span class="jquery-accordion-menu-label">-->
-                    <!--12 </span></li>-->
-                    <li><a href="cars-mng.html"><i class="fa fa-bus"></i>车辆信息管理</a></li>
-                    <li><a href="schedual-mng.html"><i class="fa fa-table"></i>排班管理</a>
-                        <ul class="submenu">
-                            <li><a href="#">服务1 </a></li>
-                            <li><a href="#">服务2 </a></li>
-                            <li><a href="#">服务3 </a>
 
-                                <ul class="submenu">
-                                    <li><a href="#">服务4 </a></li>
-                                    <li><a href="#">服务5 </a></li>
-                                    <li><a href="#">服务6 </a></li>
-                                    <li><a href="#">服务7 </a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">服务8 </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="file-shared.html"><i class="fa fa-level-up"></i>线路与站点管理</a></li>
-                    <li><a href="statistics.html"><i class="fa fa-bar-chart"></i>统计分析</a></li>
-                    <li><a href="system-mng.html"><i class="fa fa-cogs"></i>系统管理</a></li>
-                </ul>
-                <div class="jquery-accordion-menu-footer">
-                    Footer
-                </div>
-            </div>
-        </div>
-
-        <div class="clearfix"></div>
-    </div>
+    <jsp:include page="common/sidebar.jsp"/>
 
 
     <div class="contents flex-8">
@@ -115,22 +78,29 @@
                        <th>部门</th>
                        <th>组别</th>
                        <th>班次</th>
+                       <th>车站</th>
                        <th style="width: 130px;"></th>
                    </tr>
                </thead>
-               <tbody>
-                   <tr>
-                       <td>张三</td>
-                       <td>0001</td>
-                       <td>hr</td>
-                       <td>2</td>
-                       <td>4</td>
-                       <td>
-                           <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_worker_info">编辑</button>
-                           <button class="btn btn-danger btn-slim" type="button">删除</button>
-                       </td>
-                   </tr>
-               </tbody>
+
+                <c:forEach items="${workers}" var="worker">
+                    <tbody>
+                    <tr>
+                        <td>${worker.workerName}</td>
+                        <td>${worker.workerId}</td>
+                        <td>${worker.workerDept}</td>
+                        <td>${worker.workerGroup}</td>
+                        <td>${worker.rouId}</td>
+                        <td>${worker.rouId}</td>
+                        <td>
+                            <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_worker_info">编辑</button>
+                            <button class="btn btn-danger btn-slim" type="button">删除</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </c:forEach>
+
+
             </table>
 
             <button id="new-worker" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_worker">添加新员工</button>
@@ -192,7 +162,7 @@
 
          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">添加新员工</h4>
+            <h4 class="modal-title" id="myModalLabel1">添加新员工</h4>
          </div>
 
          <div class="modal-body">
