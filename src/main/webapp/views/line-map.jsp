@@ -158,6 +158,7 @@
                     <input type="button" id="result" value="查询"/>
                 </div>
                 <div id="r-result"></div>
+
             </div>
 
 
