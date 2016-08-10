@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -27,11 +28,13 @@ public class WorkerController {
         return "workers-mng";
     }
 
-
+    //@ResponseBody
     @RequestMapping("/add")
-    public MessageStatus addWorker(String name , int workerId , String dept ,
+    public String  addWorker(String name , int workerId , String dept ,
                                    String group , int routeId , int stationId){
-        return workerDao.insert(workerId,routeId,stationId,name,dept,group);
+        MessageStatus ms = workerDao.insert(workerId, routeId, stationId, name, dept, group);
+        System.out.println("-----addWorker----- "+name+" "+dept);
+        return "redirect:/worker/list";
     }
 
 
