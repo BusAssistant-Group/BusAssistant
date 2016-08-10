@@ -1,23 +1,21 @@
 package com.busasst.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Created by sl on 16-4-27.
- */
+import javax.servlet.http.HttpSession;
 
+/**
+ * Created by tsj on 16-8-10.
+ */
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class LoginController {
 
-
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(Model model) {
-
-        System.out.println("IndexController");
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(HttpSession httpSession) {
+        System.out.println("LoginController");
         return "login";
     }
 }
