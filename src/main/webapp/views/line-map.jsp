@@ -149,6 +149,15 @@
                 </div>
                 <div id="allmap"></div>
                 <!--<div id="r-result" style="width: 100%"></div>-->
+                <div id="driving_way">
+                    <select>
+                        <option value="0">最少时间</option>
+                        <option value="1">最短距离</option>
+                        <option value="2">避开高速</option>
+                    </select>
+                    <input type="button" id="result" value="查询"/>
+                </div>
+                <div id="r-result"></div>
             </div>
 
 
@@ -248,6 +257,26 @@
         addMarker(longgitude,latitude);
         map.panTo(new BMap.Point(longgitude,latitude));   //两秒后移动到广州
     })
+
+    //给定两个点给出驾车路线
+    var start = "天安门";
+    var end = "百度大厦";
+
+    var p1 = new BMap.Point(116.301934,39.977552);          //!!!!!经纬度极度相关
+    var p2 = new BMap.Point(116.508328,39.919141);
+
+    //三种驾车策略：最少时间，最短距离，避开高速
+    var routePolicy = [BMAP_DRIVING_POLICY_LEAST_TIME,BMAP_DRIVING_POLICY_LEAST_DISTANCE,BMAP_DRIVING_POLICY_AVOID_HIGHWAYS];
+
+    $("#result").click(function(){
+        map.clearOverlays();
+        var i=$("#driving_way select").val();
+        search(p1,p2,routePolicy[i]);           //起点和终点与路径的权值
+        function search(start,end,route){
+            var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true},policy: route});
+            driving.search(start,end);
+        }
+    });
 </script>
 <!--美化滚动条-->
 <script>
