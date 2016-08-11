@@ -13,7 +13,6 @@ $(function(){
             }else{
                 $(domEle).val(toshow_info.eq(Math.abs(index-5)).html());
             }
-
         });
     });
 });
