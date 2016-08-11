@@ -92,6 +92,7 @@
                         <td>${worker.workerGroup}</td>
                         <td>${worker.rouId}</td>
                         <td>${worker.rouId}</td>
+
                         <td>
                             <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_worker_info">编辑</button>
                             <button id="delete-worker" datavalue="${worker.workerId}" class="btn btn-danger btn-slim deleteBt" type="button">删除</button>
@@ -149,7 +150,7 @@
                      <div class="col-sm-10"><input type="text" name="stationId" class="form-control"></div>
                  </div>
                  <div>
-                     <input type="hidden" name="oldId" value="123">
+                     <input type="hidden" name="oldId" value="workerId">
                  </div>
                   <div class="form-group sub-btn">
                       <input type="submit" class="btn btn-primary" value="更改" >
