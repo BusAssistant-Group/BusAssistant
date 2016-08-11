@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by tsj on 16-7-5.
+ * Created by sl on 16-8-11.
  */
 @Entity
 @Table(name = "bus", schema = "", catalog = "db_bus")
 public class BusEntity {
     private int busId;
-    private Integer number;
+    private String number;
     private String brand;
     private Integer seatnum;
     private Timestamp registdate;
@@ -18,7 +18,13 @@ public class BusEntity {
     private String drivelicense;
     private String vehiclelicense;
 
-    public BusEntity(int busId, Integer number, String brand, Integer seatnum, Timestamp registdate, Timestamp insurancedate, String drivelicense, String vehiclelicense) {
+    public BusEntity(){
+
+    }
+
+    public BusEntity(int busId, String number, String brand, Integer seatnum,
+                     Timestamp registdate, Timestamp insurancedate, String drivelicense,
+                     String vehiclelicense) {
         this.busId = busId;
         this.number = number;
         this.brand = brand;
@@ -29,12 +35,8 @@ public class BusEntity {
         this.vehiclelicense = vehiclelicense;
     }
 
-    public BusEntity(){
-
-    }
-
     @Id
-    @Column(name = "bus_id")
+    @Column(name = "bus_id", nullable = false, insertable = true, updatable = true)
     public int getBusId() {
         return busId;
     }
@@ -44,17 +46,17 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "number")
-    public Integer getNumber() {
+    @Column(name = "number", nullable = true, insertable = true, updatable = true, length = 100)
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
     @Basic
-    @Column(name = "brand")
+    @Column(name = "brand", nullable = true, insertable = true, updatable = true, length = 100)
     public String getBrand() {
         return brand;
     }
@@ -64,7 +66,7 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "seatnum")
+    @Column(name = "seatnum", nullable = true, insertable = true, updatable = true)
     public Integer getSeatnum() {
         return seatnum;
     }
@@ -74,7 +76,7 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "registdate")
+    @Column(name = "registdate", nullable = true, insertable = true, updatable = true)
     public Timestamp getRegistdate() {
         return registdate;
     }
@@ -84,7 +86,7 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "insurancedate")
+    @Column(name = "insurancedate", nullable = true, insertable = true, updatable = true)
     public Timestamp getInsurancedate() {
         return insurancedate;
     }
@@ -94,7 +96,7 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "drivelicense")
+    @Column(name = "drivelicense", nullable = true, insertable = true, updatable = true, length = 100)
     public String getDrivelicense() {
         return drivelicense;
     }
@@ -104,7 +106,7 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "vehiclelicense")
+    @Column(name = "vehiclelicense", nullable = true, insertable = true, updatable = true, length = 100)
     public String getVehiclelicense() {
         return vehiclelicense;
     }
