@@ -10,7 +10,7 @@
           BusAssistant
         </div>
         <li><a href="${rootPath}/worker/list"><i class="fa fa-user-plus"></i>员工信息管理</a></li>
-        <li class="active"><a href="cars-mng.html"><i class="fa fa-bus"></i>车辆信息管理 </a><span class="jquery-accordion-menu-label">
+        <li class="active"><a href="${rootPath}/car/list"><i class="fa fa-bus"></i>车辆信息管理 </a><span class="jquery-accordion-menu-label">
                 12 </span></li>
         <li><a href="schedual-mng.html"><i class="fa fa-table"></i>排班管理</a>
           <ul class="submenu">

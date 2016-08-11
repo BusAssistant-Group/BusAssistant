@@ -84,6 +84,30 @@ public class WorkerDao extends BaseDao {
     }
 
 
+    public void updateWorker(int oldId , String name , int workerId , String dept ,
+                             String group , int routeId , int stationId){
+        WorkerEntity worker = getById(oldId);
+        if(!worker.getWorkerName().equals(name))
+            updateX("workerId",String.valueOf(oldId),"workerName",name);
+
+        if(worker.getWorkerId() != workerId)
+            updateX("workerId",String.valueOf(oldId),"workerId",String.valueOf(workerId));
+
+        if(!worker.getWorkerDept().equals(dept))
+            updateX("workerId",String.valueOf(oldId),"workerDept",dept);
+
+        if(!worker.getWorkerGroup().equals(group))
+            updateX("workerId",String.valueOf(oldId),"workerGroup",group);
+
+        if(worker.getStaId() != stationId)
+            updateX("workerId",String.valueOf(oldId),"staId",String.valueOf(stationId));
+
+        if(worker.getRouId() != routeId)
+            updateX("workerId",String.valueOf(oldId),"rouId",String.valueOf(routeId));
+
+    }
+
+
     /**
      * @param key 筛选条件字段
      * @param value 筛选条件字段值

@@ -30,8 +30,7 @@ public class WorkerController {
         return "workers-mng";
     }
 
-    //@ResponseBody
-    @RequestMapping("/add")
+    @RequestMapping(value = "/add" , method = RequestMethod.POST)
     public String addWorker(String name , int workerId , String dept ,
                                    String group , int routeId , int stationId){
         MessageStatus ms = workerDao.insert(workerId, routeId, stationId, name, dept, group);
@@ -39,11 +38,23 @@ public class WorkerController {
         return "redirect:/worker/list";
     }
 
+
+
+    @RequestMapping(value = "/update" , method = RequestMethod.POST)
+    public String updateWorker(String name , int workerId , String dept ,
+                            String group , int routeId , int stationId , int oldId){
+        workerDao.updateWorker(oldId , name , workerId , dept , group , routeId , stationId);
+        //System.out.println("-----addWorker----- "+name+" "+dept);
+        return "redirect:/worker/list";
+    }
+
+
     @RequestMapping(value = "/delete/{id}" , method = RequestMethod.POST)
     public String deleteWorker(@PathVariable("id") int id){
         workerDao.deleteByX("workerId", String.valueOf(id));
         return "redirect:/worker/list";
     }
+
 
 
 }

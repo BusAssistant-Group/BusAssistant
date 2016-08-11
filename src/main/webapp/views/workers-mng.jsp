@@ -123,29 +123,36 @@
          </div>
 
          <div class="modal-body">
-             <form class="form-horizontal">
+             <form class="form-horizontal" action="${rootPath}/worker/update" method="post">
                  <div class="form-group">
-                     <label class="col-sm-2 control-label">姓名 : </label>
-                     <div class="col-sm-10"><input type="text" class="form-control"></div>
+                     <label class="col-sm-2 control-label" >姓名 : </label>
+                     <div class="col-sm-10"><input type="text" name="name" class="form-control"></div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-2 control-label">工号 : </label>
-                     <div class="col-sm-10"><input type="text" class="form-control"></div>
+                     <div class="col-sm-10"><input type="text" name="workerId" class="form-control"></div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-2 control-label">部门 : </label>
-                     <div class="col-sm-10"><input type="text" class="form-control"></div>
+                     <div class="col-sm-10"><input type="text" name="dept" class="form-control"></div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-2 control-label">组别 : </label>
-                     <div class="col-sm-10"><input type="text" class="form-control"></div>
+                     <div class="col-sm-10"><input type="text" name="group" class="form-control"></div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-2 control-label">班次 : </label>
-                     <div class="col-sm-10"><input type="text" class="form-control"></div>
+                     <div class="col-sm-10"><input type="text" name="routeId" class="form-control"></div>
+                 </div>
+                 <div class="form-group">
+                     <label class="col-sm-2 control-label">车站 : </label>
+                     <div class="col-sm-10"><input type="text" name="stationId" class="form-control"></div>
+                 </div>
+                 <div>
+                     <input type="hidden" name="oldId" value="123">
                  </div>
                   <div class="form-group sub-btn">
-                    <button type="submit" class="btn btn-primary">提交更改</button>
+                      <input type="submit" class="btn btn-primary" value="更改" >
                   </div>
             </form>
          </div>
@@ -191,10 +198,9 @@
                      <label class="col-sm-2 control-label">车站 : </label>
                      <div class="col-sm-10"><input type="text" name="stationId" class="form-control"></div>
                  </div>
-                  <div class="form-group sub-btn">
-                      <%--<button type="submit" class="btn btn-primary">提交</button>--%>
+                 <div class="form-group sub-btn">
                       <input type="submit" class="btn btn-primary" value="提交">
-                  </div>
+                 </div>
             </form>
          </div>
 
