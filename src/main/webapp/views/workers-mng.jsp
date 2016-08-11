@@ -148,11 +148,11 @@
                      <label class="col-sm-2 control-label">车站 : </label>
                      <div class="col-sm-10"><input type="text" name="stationId" class="form-control"></div>
                  </div>
-                 <div>
-                     <input type="hidden" name="oldId" value="123">
+                 <div class="form-group">
+                     <input type="hidden" name="oldId">
                  </div>
                   <div class="form-group sub-btn">
-                      <input type="submit" class="btn btn-primary" value="更改" >
+                      <input type="submit" class="btn btn-primary" value="提交更改" >
                   </div>
             </form>
          </div>
