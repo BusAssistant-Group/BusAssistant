@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>BusAssistant</title>
 </head>
 <link rel="stylesheet" href="${assetsPath}/css/app.min.css"/>
 
@@ -91,7 +91,7 @@
                         <td>${worker.workerDept}</td>
                         <td>${worker.workerGroup}</td>
                         <td>${worker.rouId}</td>
-                        <td>${worker.rouId}</td>
+                        <td>${worker.staId}</td>
 
                         <td>
                             <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_worker_info">编辑</button>

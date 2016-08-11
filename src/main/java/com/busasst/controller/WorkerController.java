@@ -44,7 +44,7 @@ public class WorkerController {
     public String updateWorker(String name , int workerId , String dept ,
                             String group , int routeId , int stationId , int oldId){
         workerDao.updateWorker(oldId , name , workerId , dept , group , routeId , stationId);
-        //System.out.println("-----addWorker----- "+name+" "+dept);
+        System.out.println("-----updateWorker----- "+name+" "+oldId);
         return "redirect:/worker/list";
     }
 

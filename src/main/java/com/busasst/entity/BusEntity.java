@@ -22,16 +22,16 @@ public class BusEntity {
 
     }
 
-    public BusEntity(int busId, String number, String brand, Integer seatnum,
-                     Timestamp registdate, Timestamp insurancedate, String drivelicense,
+    public BusEntity(String number, String brand, Integer seatnum,
+                     Timestamp registdate, Timestamp insurancedate,
                      String vehiclelicense) {
-        this.busId = busId;
+//        this.busId = busId;
         this.number = number;
         this.brand = brand;
         this.seatnum = seatnum;
         this.registdate = registdate;
         this.insurancedate = insurancedate;
-        this.drivelicense = drivelicense;
+//        this.drivelicense = drivelicense;
         this.vehiclelicense = vehiclelicense;
     }
 
