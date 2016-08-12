@@ -22,6 +22,7 @@
 <script src="${assetsPath}/js/icheck.js"></script>
 <script src="${assetsPath}/js/template.js"></script>
 <script src="${assetsPath}/js/edit.js"></script>
+<script src="${assetsPath}/js/time/bootstrap-datetimepicker.js"></script>
 
 <style type="text/css">
     *{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
@@ -96,7 +97,7 @@
 
                     <td>
                         <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_car_info">编辑</button>
-                        <button class="btn btn-danger btn-slim" type="button">删除</button>
+                        <button class="btn btn-danger btn-slim deleteBt" datavalue="${car.busId}" type="button">删除</button>
                     </td>
                     </tbody>
                 </c:forEach>
@@ -136,14 +137,38 @@
                          <label class="col-sm-3 control-label">座位 : </label>
                          <div class="col-sm-9"><input type="text" class="form-control"></div>
                      </div>
+                     <%--<div class="form-group">--%>
+                         <%--<label class="col-sm-3 control-label">注册日期 : </label>--%>
+                         <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
+                     <%--</div>--%>
+                     <%--<div class="form-group">--%>
+                         <%--<label class="col-sm-3 control-label">保险日期 : </label>--%>
+                         <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
+                     <%--</div>--%>
                      <div class="form-group">
                          <label class="col-sm-3 control-label">注册日期 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <div class="col-sm-9">
+                             <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                 <input size="16"  class="form-control" type="text" value="" readonly >
+                                 <span class="add-on"><i class="icon-remove"></i></span>
+                                 <span class="add-on"><i class="icon-th"></i></span>
+                             </div>
+                         </div>
                      </div>
+
                      <div class="form-group">
                          <label class="col-sm-3 control-label">保险日期 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+
+                         <div class="col-sm-9">
+                             <!--<input type="text" class="form-control">-->
+                             <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                 <input size="16"  class="form-control" type="text" value="" readonly >
+                                 <span class="add-on"><i class="icon-remove"></i></span>
+                                 <span class="add-on"><i class="icon-th"></i></span>
+                             </div>
+                         </div>
                      </div>
+
                      <div class="form-group">
                          <label class="col-sm-3 control-label">驾驶证 : </label>
                          <div class="col-sm-9"><input type="text" class="form-control"></div>
@@ -174,37 +199,46 @@
          </div>
 
          <div class="modal-body">
-             <form class="form-horizontal"  action="" method="POST">
+             <form class="form-horizontal"  action="${rootPath}/car/add" method="POST">
                  <div class="form-group">
-                     <label class="col-sm-3 control-label">车辆 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <label class="col-sm-3 control-label">车牌号 : </label>
+                     <div class="col-sm-9"><input type="text" name="number" class="form-control"></div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">品牌 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <div class="col-sm-9"><input type="text" name="brand" class="form-control"></div>
                  </div>
                  <div class="form-group">
-                     <label class="col-sm-3 control-label">座位 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <label class="col-sm-3 control-label">座位数量 : </label>
+                     <div class="col-sm-9"><input type="text" name="seatnum" class="form-control"></div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">注册日期 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <div class="col-sm-9">
+                         <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                             <input size="16"  class="form-control" type="text" value="" readonly >
+                             <span class="add-on"><i class="icon-remove"></i></span>
+                             <span class="add-on"><i class="icon-th"></i></span>
+                         </div>
+                     </div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">保险日期 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
-                 </div>
-                 <div class="form-group">
-                     <label class="col-sm-3 control-label">驾驶证 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <div class="col-sm-9">
+                         <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                             <input size="16"  class="form-control" type="text" value="" readonly >
+                             <span class="add-on"><i class="icon-remove"></i></span>
+                             <span class="add-on"><i class="icon-th"></i></span>
+                         </div>
+                     </div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">行驶证 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <div class="col-sm-9"><input type="text" name="vehiclelicense" class="form-control"></div>
                  </div>
                  <div class="form-group sub-btn">
-                   <button type="submit" class="btn btn-primary">提交</button>
+                   <%--<button type="submit" class="btn btn-primary">提交</button>--%>
+                     <input type="submit" class="btn btn-primary" value="提交">
                  </div>
              </form>
          </div>
@@ -213,5 +247,31 @@
 </div><!-- /.modal -->
 </div>
 
+<<<<<<< HEAD
+<script type="text/javascript">
+    $('.deleteBt').click(function(){
+        var id=$(this).attr("datavalue");
+        console.log(id);
+        $.post("${rootPath}/car/delete/"+id,function(data){
+            location.reload(true);
+        })
+    })
+
+</script>
+
+=======
+<script>
+    $('.form_date').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:  'ch',
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+</script>
+>>>>>>> dbcd163f79ef8a160b603c78811ac8ac53e9f36d
 </body>
 </html>

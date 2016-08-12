@@ -5,6 +5,7 @@ import com.busasst.dao.CarDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,6 +31,19 @@ public class CarController {
     public String addCar(String number, String brand, int seatnum, Timestamp registdate,
                          Timestamp insurancedate, String vehiclelicense){
         MessageStatus ms = carDao.insert(number,brand,Integer.valueOf(seatnum),registdate,insurancedate,vehiclelicense);
+        return "cars-mng";
+    }
+
+    @RequestMapping(value = "/delete/{busId}" , method = RequestMethod.POST)
+    public String deleteCar(@PathVariable("busId") int busId){
+        carDao.deleteByX("busId",String.valueOf(busId));
+        return "cars-mng";
+    }
+
+
+    @RequestMapping(value = "/update" , method = RequestMethod.POST)
+    public String updateCar(){
+
         return "cars-mng";
     }
 }

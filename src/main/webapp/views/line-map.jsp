@@ -116,8 +116,8 @@
                     线路管理
                 </div>
                 <!--<div class="buttongroup">-->
-                    <!--<button class="btn btn-danger btn-sm">删除全部</button>-->
-                    <!--<button class="btn btn-info btn-sm">新增+</button>-->
+                <!--<button class="btn btn-danger btn-sm">删除全部</button>-->
+                <!--<button class="btn btn-info btn-sm">新增+</button>-->
                 <!--</div>-->
 
             </div>
@@ -134,20 +134,9 @@
                     <%--<div class="dot">厦门</div>--%>
                     <%--<div class="line"></div>--%>
                     <%--<div class="dot">1号站点</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">1号站点</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">1号站点</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">1号站点</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">1号站点</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">1号站点</div>--%>
-                    <%--<div class="line"></div>--%>
                     <c:forEach var="route" items="${routes}">
-                    <div class="dot" >${route.name}</div>
-                    <div class="line"></div>
+                        <div class="dot" dataid="${route.rouId}">${route.name}</div>
+                        <div class="line"></div>
                     </c:forEach>
                 </div>
                 <div id="allmap"></div>
@@ -171,36 +160,88 @@
 
     <!--<div class="clearfix"></div>-->
 </div>
+
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mKVc381HERXY2k81WwYCdyLoUBXdDfaW"></script>
+<%--线路显示站点--%>
+<script src="${assetsPath}/js/line-map.js" charset="utf-8"></script>
+<script>
+    $(function(){
+        var mapB = new BMap.Map("allmap");
+        var map=new Map(mapB);
+    })
+</script>
+
+
+
 <script type="text/javascript">
-/*    // 百度地图API功能
-    var map = new BMap.Map("allmap",{minZoom:1,maxZoom:25}); // 创建Map实例,设置地图允许的最小/大级别
-    map.enableScrollWheelZoom(true);
-    map.addControl(new BMap.NavigationControl());
+    /*    // 百度地图API功能
+     var map = new BMap.Map("allmap",{minZoom:1,maxZoom:25}); // 创建Map实例,设置地图允许的最小/大级别
+     map.enableScrollWheelZoom(true);
+     map.addControl(new BMap.NavigationControl());
 
-//    map.centerAndZoom(new BMap.Point(118.46, 32.03), 12);     //设置中心点与级别
+     //    map.centerAndZoom(new BMap.Point(118.46, 32.03), 12);     //设置中心点与级别
 
-    var point=map.centerAndZoom(new BMap.Point(118.46, 32.03), 12);
-    var marker = new BMap.Marker(point);
-    map.addOverlay(marker);
-    //添加麻点点击信息
-    var opts = {
-        width : 200,     // 信息窗口宽度
-        height: 100,     // 信息窗口高度
-        title : "海底捞王府井店" , // 信息窗口标题
-        enableMessage:true,//设置允许信息窗发送短息
-        message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-    }
-    var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象
-    marker.addEventListener("click", function(){
-        map.openInfoWindow(infoWindow,point); //开启信息窗口
-    });
+     var point=map.centerAndZoom(new BMap.Point(118.46, 32.03), 12);
+     var marker = new BMap.Marker(point);
+     map.addOverlay(marker);
+     //添加麻点点击信息
+     var opts = {
+     width : 200,     // 信息窗口宽度
+     height: 100,     // 信息窗口高度
+     title : "海底捞王府井店" , // 信息窗口标题
+     enableMessage:true,//设置允许信息窗发送短息
+     message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+     }
+     var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象
+     marker.addEventListener("click", function(){
+     map.openInfoWindow(infoWindow,point); //开启信息窗口
+     });
 
-    //麻点
-    // 编写自定义函数,创建标注
-//    function addMarker(point){
-//        var marker = new BMap.Marker(point);
-//        map.addOverlay(marker);
-//        //添加麻点点击信息
+     //麻点
+     // 编写自定义函数,创建标注
+     //    function addMarker(point){
+     //        var marker = new BMap.Marker(point);
+     //        map.addOverlay(marker);
+     //        //添加麻点点击信息
+     //        var opts = {
+     //            width : 200,     // 信息窗口宽度
+     //            height: 100,     // 信息窗口高度
+     //            title : "海底捞王府井店" , // 信息窗口标题
+     //            enableMessage:true,//设置允许信息窗发送短息
+     //            message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+     //        }
+     //        var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象
+     //        marker.addEventListener("click", function(){
+     //            map.openInfoWindow(infoWindow,point); //开启信息窗口
+     //        });
+     //    }
+
+     //    //添加麻点点击信息
+     //    var opts = {
+     //        width : 200,     // 信息窗口宽度
+     //        height: 100,     // 信息窗口高度
+     //        title : "海底捞王府井店" , // 信息窗口标题
+     //        enableMessage:true,//设置允许信息窗发送短息
+     //        message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+     //    }
+     //    var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象
+     //    marker.addEventListener("click", function(){
+     //        map.openInfoWindow(infoWindow,point); //开启信息窗口
+     //    });*/
+
+
+//    添加麻点
+//    var map = new BMap.Map("allmap");
+//    map.enableScrollWheelZoom(true);        //允许鼠标滚轮
+//    map.addControl(new BMap.NavigationControl());     //添加缩放控件
+//    addMarker(118.46, 32.03);
+//
+//    function addMarker(longitude,latitude){
+//        var point = new BMap.Point(longitude, latitude);
+//        var marker = new BMap.Marker(point);  // 创建标注
+//        map.addOverlay(marker);              // 将标注添加到地图中
+//        map.centerAndZoom(point, 15);
 //        var opts = {
 //            width : 200,     // 信息窗口宽度
 //            height: 100,     // 信息窗口高度
@@ -214,46 +255,8 @@
 //        });
 //    }
 
-//    //添加麻点点击信息
-//    var opts = {
-//        width : 200,     // 信息窗口宽度
-//        height: 100,     // 信息窗口高度
-//        title : "海底捞王府井店" , // 信息窗口标题
-//        enableMessage:true,//设置允许信息窗发送短息
-//        message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-//    }
-//    var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象
-//    marker.addEventListener("click", function(){
-//        map.openInfoWindow(infoWindow,point); //开启信息窗口
-//    });*/
 
-
-    //添加麻点
-    var map = new BMap.Map("allmap");
-    map.enableScrollWheelZoom(true);        //允许鼠标滚轮
-    map.addControl(new BMap.NavigationControl());     //添加缩放控件
-    addMarker(118.46, 32.03);
-
-    function addMarker(longitude,latitude){
-        var point = new BMap.Point(longitude, latitude);
-        var marker = new BMap.Marker(point);  // 创建标注
-        map.addOverlay(marker);              // 将标注添加到地图中
-        map.centerAndZoom(point, 15);
-        var opts = {
-            width : 200,     // 信息窗口宽度
-            height: 100,     // 信息窗口高度
-            title : "海底捞王府井店" , // 信息窗口标题
-            enableMessage:true,//设置允许信息窗发送短息
-            message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-        }
-        var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象
-        marker.addEventListener("click", function(){
-            map.openInfoWindow(infoWindow,point); //开启信息窗口
-        });
-    }
-
-
-    //添加平移效果
+/*    //添加平移效果
 
     $("#test").click(function(){
         var longgitude=$(this).attr("longitude");
@@ -280,7 +283,7 @@
             var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true},policy: route});
             driving.search(start,end);
         }
-    });
+    });*/
 </script>
 <!--美化滚动条-->
 <script>
