@@ -28,18 +28,14 @@ public class CarDao extends BaseDao{
                                 Timestamp insurancedate, String vehiclelicense){
         if(!exists(number)){
             BusEntity bus = new BusEntity(number,brand,seatnum,registdate,insurancedate,vehiclelicense);
-
             save(bus);
             return new MessageStatus("添加成功！",1);
         }
-
         return new MessageStatus("该员工已存在！",0);
     }
 
 
-
-
-    public boolean exists(String number){
+    private boolean exists(String number){
         String hql = "from BusEntity as bus " +
                 "where bus.number="+number;
         Query query = query(hql);
@@ -49,4 +45,10 @@ public class CarDao extends BaseDao{
         return true;
     }
 
+
+    public void deleteByX(String key,String value){
+        String hql = "delete BusEntity bus where bus."+key+"="+value;
+        Query query = query(hql);
+        query.executeUpdate();
+    }
 }
