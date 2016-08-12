@@ -1,15 +1,19 @@
 package com.busasst.controller;
 
+import com.busasst.dao.RouteDao;
 import com.busasst.dao.UserDao;
 import com.busasst.entity.AdminEntity;
+import com.busasst.entity.RouteEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by tsj on 16-8-10.
@@ -19,8 +23,14 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     @Autowired
+    @Qualifier("routeDao")
+    private RouteDao routeDao;
+
+    @Autowired
     @Qualifier("userDao")
     private UserDao userDao;
+
+
 
     @RequestMapping(value = "/changetoregist", method = RequestMethod.GET)
     public String changeToRegist() {
@@ -134,8 +144,10 @@ public class UserController {
         return "lineManage";
     }
 
-    @RequestMapping(value = "/test2", method = RequestMethod.GET)
-    public String test2() {
+    @RequestMapping(value = "/linestation", method = RequestMethod.GET)
+    public String test2(Model model) {
+        List<RouteEntity> routes = routeDao.getAllRoutes();
+        model.addAttribute("routes",routes);
         return "line-map";
     }
 }

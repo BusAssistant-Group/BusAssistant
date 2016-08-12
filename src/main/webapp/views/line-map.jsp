@@ -125,27 +125,30 @@
             <div class="map">
 
                 <div class="alldot scroll">
-                    <div class="dot" longitude="118.46" latitude="32.03">南京</div>
+                    <%--<div class="dot" longitude="118.46" latitude="32.03">南京</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot" longitude="113.14" latitude="23.16" id="test">广东</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">上海</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">厦门</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">1号站点</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">1号站点</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">1号站点</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">1号站点</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">1号站点</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <%--<div class="dot">1号站点</div>--%>
+                    <%--<div class="line"></div>--%>
+                    <c:forEach var="route" items="${routes}">
+                    <div class="dot" >${route.name}</div>
                     <div class="line"></div>
-                    <div class="dot" longitude="113.14" latitude="23.16" id="test">广东</div>
-                    <div class="line"></div>
-                    <div class="dot">上海</div>
-                    <div class="line"></div>
-                    <div class="dot">厦门</div>
-                    <div class="line"></div>
-                    <div class="dot">1号站点</div>
-                    <div class="line"></div>
-                    <div class="dot">1号站点</div>
-                    <div class="line"></div>
-                    <div class="dot">1号站点</div>
-                    <div class="line"></div>
-                    <div class="dot">1号站点</div>
-                    <div class="line"></div>
-                    <div class="dot">1号站点</div>
-                    <div class="line"></div>
-                    <div class="dot">1号站点</div>
-                    <div class="line"></div>
-
+                    </c:forEach>
                 </div>
                 <div id="allmap"></div>
                 <!--<div id="r-result" style="width: 100%"></div>-->
