@@ -1,15 +1,19 @@
 package com.busasst.controller;
 
+import com.busasst.dao.RouteDao;
 import com.busasst.dao.UserDao;
 import com.busasst.entity.AdminEntity;
+import com.busasst.entity.RouteEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by tsj on 16-8-10.
@@ -19,8 +23,14 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     @Autowired
+    @Qualifier("routeDao")
+    private RouteDao routeDao;
+
+    @Autowired
     @Qualifier("userDao")
     private UserDao userDao;
+
+
 
     @RequestMapping(value = "/changetoregist", method = RequestMethod.GET)
     public String changeToRegist() {
@@ -32,7 +42,7 @@ public class UserController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)           //è°ƒç”¨postæ–¹æ³•
+    @RequestMapping(value = "/login", method = RequestMethod.POST)           //µ÷ÓÃpost·½·¨
     public String login(HttpServletRequest request, String username,
                         String password, String codenum,HttpSession session) {
         int status = 0;
@@ -42,23 +52,23 @@ public class UserController {
         String codemessage = new String();
 
         if (username.isEmpty()) {
-            usernmaemessage = "è¯·è¾“å…¥ç”¨æˆ·å";
+            usernmaemessage = "ÇëÊäÈëÓÃ»§Ãû";
         } else {
             AdminEntity user = userDao.getByName(username);
             if(user==null){
-                usernmaemessage = "ä¸å­˜åœ¨çš„ç”¨æˆ·ï¼";
+                usernmaemessage = "²»´æÔÚµÄÓÃ»§£¡";
             }
             else if (password.isEmpty()) {
-                passwordmessage = "è¯·è¾“å…¥å¯†ç ";
+                passwordmessage = "ÇëÊäÈëÃÜÂë";
             } else if (!user.getPassword().equals(password)) {
-                passwordmessage = "å¯†ç é”™è¯¯";
+                passwordmessage = "ÃÜÂë´íÎó";
             }
             else if(!codenum.equalsIgnoreCase(session.getAttribute("code").toString())){
-                codemessage = "éªŒè¯ç é”™è¯¯";
+                codemessage = "ÑéÖ¤Âë´íÎó";
             }
             else {
                 status = 1;
-                usernmaemessage = "ç”¨æˆ·ç™»é™†æˆåŠŸ";
+                usernmaemessage = "ÓÃ»§µÇÂ½³É¹¦";
                 session.setAttribute("loginUser", user);
                 session.setAttribute("userid",user.getAdminId());
                 System.out.println("message1 : " + usernmaemessage);
@@ -67,7 +77,7 @@ public class UserController {
 
 
 
-               // if(user.getAuthority().equals("1"))return "redirect:/admin/index";
+                // if(user.getAuthority().equals("1"))return "redirect:/admin/index";
                 return "cars-mng";
             }
         }
@@ -90,12 +100,12 @@ public class UserController {
         String recodemessage = new String();
 
         if (username.isEmpty()) {
-            reusernmaemessage = "è¯·è¾“å…¥ç”¨æˆ·å";
+            reusernmaemessage = "ÇëÊäÈëÓÃ»§Ãû";
         } else if (password.isEmpty()) {
-            repasswordmessage = "è¯·è¾“å…¥å¯†ç ";
+            repasswordmessage = "ÇëÊäÈëÃÜÂë";
         } else {
             if (!password.equals(password2)) {
-                recodemessage = "è¯·ä¿æŒå¯†ç å’Œç¡®è®¤å¯†ç ä¸€è‡´ï¼";
+                recodemessage = "Çë±£³ÖÃÜÂëºÍÈ·ÈÏÃÜÂëÒ»ÖÂ£¡";
             } else {
                 AdminEntity testuser = userDao.getByName(username);
                 if(testuser==null){
@@ -105,7 +115,7 @@ public class UserController {
                     httpSession.setAttribute("username",username);
                     return "cars-mng";
                 } else{
-                    reusernmaemessage = "å·²ç»å­˜åœ¨çš„ç”¨æˆ·åï¼";
+                    reusernmaemessage = "ÒÑ¾­´æÔÚµÄÓÃ»§Ãû£¡";
                 }
             }
         }
@@ -134,8 +144,10 @@ public class UserController {
         return "lineManage";
     }
 
-    @RequestMapping(value = "/test2", method = RequestMethod.GET)
-    public String test2() {
+    @RequestMapping(value = "/linestation", method = RequestMethod.GET)
+    public String test2(Model model) {
+        List<RouteEntity> routes = routeDao.getAllRoutes();
+        model.addAttribute("routes",routes);
         return "line-map";
     }
 }
