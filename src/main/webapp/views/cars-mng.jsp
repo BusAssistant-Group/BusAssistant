@@ -22,6 +22,7 @@
 <script src="${assetsPath}/js/icheck.js"></script>
 <script src="${assetsPath}/js/template.js"></script>
 <script src="${assetsPath}/js/edit.js"></script>
+<script src="${assetsPath}/js/time/bootstrap-datetimepicker.js"></script>
 
 <style type="text/css">
     *{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
@@ -136,14 +137,38 @@
                          <label class="col-sm-3 control-label">座位 : </label>
                          <div class="col-sm-9"><input type="text" class="form-control"></div>
                      </div>
+                     <%--<div class="form-group">--%>
+                         <%--<label class="col-sm-3 control-label">注册日期 : </label>--%>
+                         <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
+                     <%--</div>--%>
+                     <%--<div class="form-group">--%>
+                         <%--<label class="col-sm-3 control-label">保险日期 : </label>--%>
+                         <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
+                     <%--</div>--%>
                      <div class="form-group">
                          <label class="col-sm-3 control-label">注册日期 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <div class="col-sm-9">
+                             <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                 <input size="16"  class="form-control" type="text" value="" readonly >
+                                 <span class="add-on"><i class="icon-remove"></i></span>
+                                 <span class="add-on"><i class="icon-th"></i></span>
+                             </div>
+                         </div>
                      </div>
+
                      <div class="form-group">
                          <label class="col-sm-3 control-label">保险日期 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+
+                         <div class="col-sm-9">
+                             <!--<input type="text" class="form-control">-->
+                             <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                 <input size="16"  class="form-control" type="text" value="" readonly >
+                                 <span class="add-on"><i class="icon-remove"></i></span>
+                                 <span class="add-on"><i class="icon-th"></i></span>
+                             </div>
+                         </div>
                      </div>
+
                      <div class="form-group">
                          <label class="col-sm-3 control-label">驾驶证 : </label>
                          <div class="col-sm-9"><input type="text" class="form-control"></div>
@@ -187,13 +212,33 @@
                      <label class="col-sm-3 control-label">座位 : </label>
                      <div class="col-sm-9"><input type="text" class="form-control"></div>
                  </div>
+                 <%--<div class="form-group">--%>
+                     <%--<label class="col-sm-3 control-label">注册日期 : </label>--%>
+                     <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
+                 <%--</div>--%>
+                 <%--<div class="form-group">--%>
+                     <%--<label class="col-sm-3 control-label">保险日期 : </label>--%>
+                     <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
+                 <%--</div>--%>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">注册日期 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <div class="col-sm-9">
+                         <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                             <input size="16"  class="form-control" type="text" value="" readonly >
+                             <span class="add-on"><i class="icon-remove"></i></span>
+                             <span class="add-on"><i class="icon-th"></i></span>
+                         </div>
+                     </div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">保险日期 : </label>
-                     <div class="col-sm-9"><input type="text" class="form-control"></div>
+                     <div class="col-sm-9">
+                         <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                             <input size="16"  class="form-control" type="text" value="" readonly >
+                             <span class="add-on"><i class="icon-remove"></i></span>
+                             <span class="add-on"><i class="icon-th"></i></span>
+                         </div>
+                     </div>
                  </div>
                  <div class="form-group">
                      <label class="col-sm-3 control-label">驾驶证 : </label>
@@ -213,5 +258,17 @@
 </div><!-- /.modal -->
 </div>
 
+<script>
+    $('.form_date').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:  'ch',
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+</script>
 </body>
 </html>
