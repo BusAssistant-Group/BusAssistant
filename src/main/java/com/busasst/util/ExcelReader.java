@@ -198,7 +198,7 @@ public class ExcelReader {
     public static void main(String[] args) {
         try {
             // 对读取Excel表格标题测试
-            InputStream is = new FileInputStream("/home/sl/test/test.xlsx");
+            InputStream is = new FileInputStream("/home/sl/test/test.xls");
             ExcelReader excelReader = new ExcelReader();
             String[] title = excelReader.readExcelTitle(is);
             System.out.println("获得Excel表格的标题:");
@@ -207,7 +207,7 @@ public class ExcelReader {
             }
 
             // 对读取Excel表格内容测试
-            InputStream is2 = new FileInputStream("/home/sl/test/test.xlsx");
+            InputStream is2 = new FileInputStream("/home/sl/test/test.xls");
             Map<Integer, String> map = excelReader.readExcelContent(is2);
             System.out.println("获得Excel表格的内容:");
             for (int i = 1; i <= map.size(); i++) {
