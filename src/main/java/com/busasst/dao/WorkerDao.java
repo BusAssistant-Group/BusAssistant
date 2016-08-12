@@ -77,10 +77,46 @@ public class WorkerDao extends BaseDao {
      * @param column 筛选条件字段
      * @param oldvalue 筛选条件字段值
      */
-    public void updateX(String key,String value,String column,String oldvalue){
+    public void updateX(String column,String oldvalue , String key,String value){
         String hql = "update WorkerEntity worker set worker."+key+"="+value+"where worker."+column+"="+oldvalue;
         Query query = query(hql);
         query.executeUpdate();
+    }
+
+
+    public void updateWorker(int oldId , String name , int workerId , String dept ,
+                             String group , int routeId , int stationId){
+        WorkerEntity worker = getById(oldId);
+        if(!worker.getWorkerName().equals(name)) {
+            updateX("workerId", String.valueOf(oldId), "workerName", name);
+            System.out.println("change "+name);
+        }
+
+        if(!worker.getWorkerDept().equals(dept)) {
+            updateX("workerId", String.valueOf(oldId), "workerDept", dept);
+            System.out.println("change " + dept);
+        }
+
+        if(!worker.getWorkerGroup().equals(group)) {
+            updateX("workerId", String.valueOf(oldId), "workerGroup", group);
+            System.out.println("change " + group);
+        }
+
+        if(worker.getStaId() != stationId) {
+            updateX("workerId", String.valueOf(oldId), "staId", String.valueOf(stationId));
+            System.out.println("change "+stationId);
+        }
+
+        if(worker.getRouId() != routeId) {
+            updateX("workerId", String.valueOf(oldId), "rouId", String.valueOf(routeId));
+            System.out.println("change " + routeId);
+        }
+
+        if(worker.getWorkerId() != workerId) {
+            updateX("workerId", String.valueOf(oldId), "workerId", String.valueOf(workerId));
+            System.out.println("change "+workerId);
+        }
+
     }
 
 

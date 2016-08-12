@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>BusAssistant</title>
 </head>
 <link rel="stylesheet" href="${assetsPath}/css/app.min.css"/>
 
@@ -74,28 +74,33 @@
         <div id="cars-mng">
             <table class="table">
                <thead>
-                   <th>车辆</th>
+                   <th>车牌号</th>
                    <th>品牌</th>
-                   <th>座位</th>
+                   <th>座位数量</th>
                    <th>注册日期</th>
                    <th>保险日期</th>
-                   <th>驾驶证</th>
+                   <%--<th>驾驶证</th>--%>
                    <th>行驶证</th>
                    <th style="width: 150px;"></th>
                </thead>
-               <tbody>
-                   <td>123</td>
-                   <td>12321</td>
-                   <td>2</td>
-                   <td>123</td>
-                   <td>123123</td>
-                   <td>123123</td>
-                   <td>123123</td>
-                   <td>
-                       <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_car_info">编辑</button>
-                       <button class="btn btn-danger btn-slim" type="button">删除</button>
-                   </td>
-               </tbody>
+
+                <c:forEach items="${cars}" var="car">
+                    <tbody>
+                    <td>${car.number}</td>
+                    <td>${car.brand}</td>
+                    <td>${car.seatnum}</td>
+                    <td>${car.registdate}</td>
+                    <td>${car.insurancedate}</td>
+                    <%--<td>${car.drivelicense}</td>--%>
+                    <td>${car.vehiclelicense}</td>
+
+                    <td>
+                        <button class="btn btn-success btn-slim btn-edit" type="button" data-toggle="modal" data-target="#edit_car_info">编辑</button>
+                        <button class="btn btn-danger btn-slim" type="button">删除</button>
+                    </td>
+                    </tbody>
+                </c:forEach>
+
             </table>
 
             <button id="new-car" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_car">添加车辆</button>
