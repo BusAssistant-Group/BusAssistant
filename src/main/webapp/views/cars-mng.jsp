@@ -101,7 +101,6 @@
                     </td>
                     </tbody>
                 </c:forEach>
-
             </table>
 
             <button id="new-car" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_car">添加车辆</button>
@@ -124,32 +123,24 @@
          </div>
 
          <div class="modal-body">
-             <form class="form-horizontal"  action="" method="POST">
+             <form class="form-horizontal"  action="${rootPath}/car/update" method="POST">
                      <div class="form-group">
-                         <label class="col-sm-3 control-label">车辆 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <label class="col-sm-3 control-label">车牌号 : </label>
+                         <div class="col-sm-9"><input type="text" name="number" class="form-control"></div>
                      </div>
                      <div class="form-group">
                          <label class="col-sm-3 control-label">品牌 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <div class="col-sm-9"><input type="text" name="brand" class="form-control"></div>
                      </div>
                      <div class="form-group">
                          <label class="col-sm-3 control-label">座位 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <div class="col-sm-9"><input type="text" name="seatnum" class="form-control"></div>
                      </div>
-                     <%--<div class="form-group">--%>
-                         <%--<label class="col-sm-3 control-label">注册日期 : </label>--%>
-                         <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
-                     <%--</div>--%>
-                     <%--<div class="form-group">--%>
-                         <%--<label class="col-sm-3 control-label">保险日期 : </label>--%>
-                         <%--<div class="col-sm-9"><input type="text" class="form-control"></div>--%>
-                     <%--</div>--%>
                      <div class="form-group">
                          <label class="col-sm-3 control-label">注册日期 : </label>
                          <div class="col-sm-9">
                              <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                 <input size="16"  class="form-control" type="text" value="" readonly >
+                                 <input size="16" name="registdate" class="form-control" type="text" value="" readonly >
                                  <span class="add-on"><i class="icon-remove"></i></span>
                                  <span class="add-on"><i class="icon-th"></i></span>
                              </div>
@@ -162,7 +153,7 @@
                          <div class="col-sm-9">
                              <!--<input type="text" class="form-control">-->
                              <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                 <input size="16"  class="form-control" type="text" value="" readonly >
+                                 <input size="16" name="insurancedate" class="form-control" type="text" value="" readonly >
                                  <span class="add-on"><i class="icon-remove"></i></span>
                                  <span class="add-on"><i class="icon-th"></i></span>
                              </div>
@@ -170,12 +161,11 @@
                      </div>
 
                      <div class="form-group">
-                         <label class="col-sm-3 control-label">驾驶证 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <label class="col-sm-3 control-label">行驶证 : </label>
+                         <div class="col-sm-9"><input type="text" name="vehiclelicense" class="form-control"></div>
                      </div>
                      <div class="form-group">
-                         <label class="col-sm-3 control-label">行驶证 : </label>
-                         <div class="col-sm-9"><input type="text" class="form-control"></div>
+                         <input type="hidden" name="oldNumber">
                      </div>
                      <div class="form-group sub-btn">
                        <button type="submit" class="btn btn-primary">提交更改</button>
@@ -216,7 +206,7 @@
                      <label class="col-sm-3 control-label">注册日期 : </label>
                      <div class="col-sm-9">
                          <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                             <input size="16"  class="form-control" type="text" value="" readonly >
+                             <input size="16" name="registdate" class="form-control" type="text" value="" readonly >
                              <span class="add-on"><i class="icon-remove"></i></span>
                              <span class="add-on"><i class="icon-th"></i></span>
                          </div>
@@ -226,7 +216,7 @@
                      <label class="col-sm-3 control-label">保险日期 : </label>
                      <div class="col-sm-9">
                          <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                             <input size="16"  class="form-control" type="text" value="" readonly >
+                             <input size="16" name="insurancedate" class="form-control" type="text" value="" readonly >
                              <span class="add-on"><i class="icon-remove"></i></span>
                              <span class="add-on"><i class="icon-th"></i></span>
                          </div>

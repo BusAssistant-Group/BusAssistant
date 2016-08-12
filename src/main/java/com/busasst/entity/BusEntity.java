@@ -1,10 +1,9 @@
 package com.busasst.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
- * Created by sl on 16-8-11.
+ * Created by sl on 16-8-12.
  */
 @Entity
 @Table(name = "bus", schema = "", catalog = "db_bus")
@@ -13,9 +12,8 @@ public class BusEntity {
     private String number;
     private String brand;
     private Integer seatnum;
-    private Timestamp registdate;
-    private Timestamp insurancedate;
-    private String drivelicense;
+    private String registdate;
+    private String insurancedate;
     private String vehiclelicense;
 
     public BusEntity(){
@@ -23,15 +21,12 @@ public class BusEntity {
     }
 
     public BusEntity(String number, String brand, Integer seatnum,
-                     Timestamp registdate, Timestamp insurancedate,
-                     String vehiclelicense) {
-//        this.busId = busId;
+                     String registdate, String insurancedate, String vehiclelicense) {
         this.number = number;
         this.brand = brand;
         this.seatnum = seatnum;
         this.registdate = registdate;
         this.insurancedate = insurancedate;
-//        this.drivelicense = drivelicense;
         this.vehiclelicense = vehiclelicense;
     }
 
@@ -76,33 +71,23 @@ public class BusEntity {
     }
 
     @Basic
-    @Column(name = "registdate", nullable = true, insertable = true, updatable = true)
-    public Timestamp getRegistdate() {
+    @Column(name = "registdate", nullable = true, insertable = true, updatable = true, length = 100)
+    public String getRegistdate() {
         return registdate;
     }
 
-    public void setRegistdate(Timestamp registdate) {
+    public void setRegistdate(String registdate) {
         this.registdate = registdate;
     }
 
     @Basic
-    @Column(name = "insurancedate", nullable = true, insertable = true, updatable = true)
-    public Timestamp getInsurancedate() {
+    @Column(name = "insurancedate", nullable = true, insertable = true, updatable = true, length = 100)
+    public String getInsurancedate() {
         return insurancedate;
     }
 
-    public void setInsurancedate(Timestamp insurancedate) {
+    public void setInsurancedate(String insurancedate) {
         this.insurancedate = insurancedate;
-    }
-
-    @Basic
-    @Column(name = "drivelicense", nullable = true, insertable = true, updatable = true, length = 100)
-    public String getDrivelicense() {
-        return drivelicense;
-    }
-
-    public void setDrivelicense(String drivelicense) {
-        this.drivelicense = drivelicense;
     }
 
     @Basic
@@ -129,8 +114,6 @@ public class BusEntity {
         if (registdate != null ? !registdate.equals(busEntity.registdate) : busEntity.registdate != null) return false;
         if (insurancedate != null ? !insurancedate.equals(busEntity.insurancedate) : busEntity.insurancedate != null)
             return false;
-        if (drivelicense != null ? !drivelicense.equals(busEntity.drivelicense) : busEntity.drivelicense != null)
-            return false;
         if (vehiclelicense != null ? !vehiclelicense.equals(busEntity.vehiclelicense) : busEntity.vehiclelicense != null)
             return false;
 
@@ -145,7 +128,6 @@ public class BusEntity {
         result = 31 * result + (seatnum != null ? seatnum.hashCode() : 0);
         result = 31 * result + (registdate != null ? registdate.hashCode() : 0);
         result = 31 * result + (insurancedate != null ? insurancedate.hashCode() : 0);
-        result = 31 * result + (drivelicense != null ? drivelicense.hashCode() : 0);
         result = 31 * result + (vehiclelicense != null ? vehiclelicense.hashCode() : 0);
         return result;
     }

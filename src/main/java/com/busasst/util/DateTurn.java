@@ -1,57 +1,40 @@
 package com.busasst.util;
 
-import java.util.Calendar;
-import java.util.Date;
+
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by sl on 16-3-1.
  */
 public class DateTurn {
 
-    /**
-     * 传入时间戳，转换成距离当前时间的时间字符串
-     * @param time:String
-     * @return
-     */
-    public static String Turn(long time) {
 
-        Calendar calendar = Calendar.getInstance();
-        Date nowDate = calendar.getTime();
+    public static String String2Timestamp(Timestamp ts) {
 
-        long nowTime = nowDate.getTime();
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        int minute = (int)((nowTime-time)/60000);
-
-        if (minute == 0) {
-            return "1分钟前";
-        } else if (minute < 60) {
-            return minute + "分钟前";
-        } else if (minute/60 < 24) {
-            return minute / 60 + "小时前";
-        } else if (minute/ (24 * 60) <= 30) {
-            return minute / (24 * 60) + "天前";
-        } else {
-            return "很久以前";
-        }
+        return sdf.format(ts);
 
     }
 
 
-    public static String Turn(Date date){
-
-        long time = date.getTime();
-        return Turn(time);
-
+    public static Timestamp Timestamp2String(String s){
+        s += " 00:00:00.0";
+        return Timestamp.valueOf(s);
     }
 
 
+
+
+//    public static void main(String args[]){
+//        Timestamp ts = new Timestamp(System.currentTimeMillis());
 //
-//    public static void main(String args[]) throws ParseException {
-//        DateTurn dateTurn = new DateTurn();
+//        System.out.println(String2Timestamp(Timestamp2String("2016-08-12")));
 //
-//        long t = 1454320399000L;
+//        System.out.println(Timestamp2String("2016-08-12"));
 //
-//        System.out.println(dateTurn.Turn(t));
 //    }
 
 
