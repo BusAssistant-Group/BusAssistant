@@ -1,6 +1,7 @@
 package com.busassistant.dao;
 
 import com.busasst.bean.MessageStatus;
+import com.busasst.dao.CarDao;
 import com.busasst.dao.WorkerDao;
 import com.busasst.entity.WorkerEntity;
 import org.junit.Assert;
@@ -30,7 +31,7 @@ public class WorkerDaoTest {
 
     @Test
     public void testExists(){
-        Assert.assertTrue(workerDao.exists(1001));
+        Assert.assertTrue(workerDao.exists(10101));
     }
 
     @Test

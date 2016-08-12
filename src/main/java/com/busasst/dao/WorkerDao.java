@@ -77,8 +77,13 @@ public class WorkerDao extends BaseDao {
      * @param column 筛选条件字段
      * @param oldvalue 筛选条件字段值
      */
-    public void updateX(String column,String oldvalue , String key,String value){
-        String hql = "update WorkerEntity worker set worker."+key+"="+value+"where worker."+column+"="+oldvalue;
+    public void updateX(String column,String oldvalue , String key , String value){
+        String hql;
+        if(key.equals("workerName") || key.equals("group")){
+            hql = "update WorkerEntity worker set worker."+key+"='"+value+"' where worker."+column+"="+oldvalue;
+        }else {
+            hql = "update WorkerEntity worker set worker."+key+"="+value+" where worker."+column+"="+oldvalue;
+        }
         Query query = query(hql);
         query.executeUpdate();
     }

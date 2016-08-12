@@ -2,6 +2,7 @@ package com.busasst.controller;
 
 import com.busasst.bean.MessageStatus;
 import com.busasst.dao.CarDao;
+import com.busasst.util.DateTurn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,22 +29,25 @@ public class CarController {
     }
 
     @RequestMapping(value = "/add" , method = RequestMethod.POST)
-    public String addCar(String number, String brand, int seatnum, Timestamp registdate,
-                         Timestamp insurancedate, String vehiclelicense){
+    public String addCar(String number, String brand, int seatnum, String registdate,
+                         String  insurancedate, String vehiclelicense){
         MessageStatus ms = carDao.insert(number,brand,Integer.valueOf(seatnum),registdate,insurancedate,vehiclelicense);
-        return "cars-mng";
+        return "redirect:/car/list";
     }
 
     @RequestMapping(value = "/delete/{busId}" , method = RequestMethod.POST)
     public String deleteCar(@PathVariable("busId") int busId){
         carDao.deleteByX("busId",String.valueOf(busId));
-        return "cars-mng";
+        return "redirect:/car/list";
     }
 
 
     @RequestMapping(value = "/update" , method = RequestMethod.POST)
-    public String updateCar(){
+    public String updateCar(String number, String brand, int seatnum, String registdate,
+                            String insurancedate, String vehiclelicense , String oldNumber){
 
-        return "cars-mng";
+        carDao.updateCar(number,brand,Integer.valueOf(seatnum),registdate,insurancedate,
+                        vehiclelicense,oldNumber);
+        return "redirect:/car/list";
     }
 }

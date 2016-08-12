@@ -1,11 +1,11 @@
 package com.busasst.dao;
 
 import com.busasst.bean.MessageStatus;
+
 import com.busasst.entity.BusEntity;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -18,14 +18,21 @@ public class CarDao extends BaseDao{
         return get(BusEntity.class , carId);
     }
 
+    public BusEntity getByNumber(String number){
+        String hql = "from BusEntity as bus where bus.number='"+number+"'";
+        Query query = query(hql);
+        List<BusEntity> bus = query.list();
+        return bus.get(0);
+    }
+
     public List<BusEntity> getAll(){
         return getAll("BusEntity");
     }
 
 
 
-    public MessageStatus insert(String number, String brand, Integer seatnum, Timestamp registdate,
-                                Timestamp insurancedate, String vehiclelicense){
+    public MessageStatus insert(String number, String brand, Integer seatnum, String registdate,
+                                String  insurancedate, String vehiclelicense){
         if(!exists(number)){
             BusEntity bus = new BusEntity(number,brand,seatnum,registdate,insurancedate,vehiclelicense);
             save(bus);
@@ -35,11 +42,11 @@ public class CarDao extends BaseDao{
     }
 
 
-    private boolean exists(String number){
-        String hql = "from BusEntity as bus " +
-                "where bus.number="+number;
+    public boolean exists(String number){
+        String hql = "from BusEntity as bus where bus.number='"+number+"'";
         Query query = query(hql);
-        if(query.list().isEmpty()){
+        List<BusEntity> bus = query.list();
+        if(bus.isEmpty()){
             return false;
         }
         return true;
@@ -50,5 +57,49 @@ public class CarDao extends BaseDao{
         String hql = "delete BusEntity bus where bus."+key+"="+value;
         Query query = query(hql);
         query.executeUpdate();
+    }
+
+
+    public void updateX(String column,String oldvalue , String key , String value){
+        String hql;
+        if(key.equals("seatnum")){
+            hql = "update BusEntity bus set bus."+key+"="+value+" where bus."+column+"='"+oldvalue+"'";
+        }else{
+            hql = "update BusEntity bus set bus."+key+"='"+value+"' where bus."+column+"='"+oldvalue+"'";
+        }
+        Query query = query(hql);
+        query.executeUpdate();
+    }
+
+    public void updateCar(String number, String brand, Integer seatnum, String registdate,
+                          String  insurancedate, String vehiclelicense , String oldNumber){
+        BusEntity bus = getByNumber(oldNumber);
+
+        if(!bus.getNumber().equals(number)) {
+            updateX("number", number, "number", number);
+        }
+
+        if(!bus.getBrand().equals(brand)) {
+            updateX("number", number, "brand", brand);
+        }
+
+        if(bus.getSeatnum()!=(seatnum)) {
+            updateX("number", number, "seatnum", String.valueOf(seatnum));
+        }
+
+        if(!bus.getInsurancedate().equals(insurancedate)) {
+            updateX("number", number, "insurancedate", insurancedate);
+        }
+
+        if(!bus.getVehiclelicense().equals(vehiclelicense)) {
+            updateX("number", number, "vehiclelicense", vehiclelicense);
+        }
+
+        if(!bus.getRegistdate().equals(registdate)) {
+            updateX("number", number, "registdate", registdate);
+            System.out.println("修改！！！！！  "+ registdate);
+        }
+
+
     }
 }
