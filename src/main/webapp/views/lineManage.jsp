@@ -142,36 +142,16 @@
 
                 <div class="line"></div>
 
-                <div class="body-floor flex-row">
-                    <div class="flex-3 flex-row">
-                        <div class="flex-1 checkbox"><input type="checkbox"/></div>
-                        <!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->
-                        <div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>
-                    </div>
-                    <div class="flex-3 line-dot">
-                        <span>1</span>
-                        <span>2</span>
-                        <div class="all-block">
-                            <span class="block">...</span>
-                        </div>
-                    </div>
-                    <div class="flex-3 line-operate">
-                        <button type="button" class="btn btn-danger btn-sm">删除</button>
-                        <button type="button" class="btn btn-warning btn-sm">修改</button>
-                        <button type="button" class="btn btn-default btn-sm">地图展示</button>
-                    </div>
-                </div>
-                <div class="line"></div>
 
+                <c:forEach var="route" items="${routes}">
                 <div class="body-floor flex-row">
                     <div class="flex-3 flex-row">
                         <div class="flex-1 checkbox"><input type="checkbox"/></div>
                         <!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->
-                        <div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>
+                        <div class="line-name flex-4"><span><a href="#">${route.name}</a></span></div>
                     </div>
                     <div class="flex-3 line-dot">
-                        <span>1</span>
-                        <span>2</span>
+                        <span>${route.distance}</span>
                         <div class="all-block">
                             <span class="block">...</span>
                         </div>
@@ -179,73 +159,95 @@
                     <div class="flex-3 line-operate">
                         <button type="button" class="btn btn-danger btn-sm">删除</button>
                         <button type="button" class="btn btn-warning btn-sm">修改</button>
-                        <button type="button" class="btn btn-default btn-sm">地图展示</button>
+                        <a href="${rootPath}/user/linestation" class="btn btn-default btn-sm">地图展示</a>
                     </div>
                 </div>
                 <div class="line"></div>
+                </c:forEach>
 
-                <div class="body-floor flex-row">
-                    <div class="flex-3 flex-row">
-                        <div class="flex-1 checkbox"><input type="checkbox"/></div>
-                        <!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->
-                        <div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>
-                    </div>
-                    <div class="flex-3 line-dot">
-                        <span>1</span>
-                        <span>2</span>
-                        <div class="all-block">
-                            <span class="block">...</span>
-                        </div>
-                    </div>
-                    <div class="flex-3 line-operate">
-                        <button type="button" class="btn btn-danger btn-sm">删除</button>
-                        <button type="button" class="btn btn-warning btn-sm">修改</button>
-                        <button type="button" class="btn btn-default btn-sm">地图展示</button>
-                    </div>
-                </div>
-                <div class="line"></div>
+                <%--<div class="body-floor flex-row">--%>
+                    <%--<div class="flex-3 flex-row">--%>
+                        <%--<div class="flex-1 checkbox"><input type="checkbox"/></div>--%>
+                        <%--<!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->--%>
+                        <%--<div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-dot">--%>
+                        <%--<span>1</span>--%>
+                        <%--<span>2</span>--%>
+                        <%--<div class="all-block">--%>
+                            <%--<span class="block">...</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-operate">--%>
+                        <%--<button type="button" class="btn btn-danger btn-sm">删除</button>--%>
+                        <%--<button type="button" class="btn btn-warning btn-sm">修改</button>--%>
+                        <%--<button type="button" class="btn btn-default btn-sm">地图展示</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="line"></div>--%>
 
-                <div class="body-floor flex-row">
-                    <div class="flex-3 flex-row">
-                        <div class="flex-1 checkbox"><input type="checkbox"/></div>
-                        <!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->
-                        <div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>
-                    </div>
-                    <div class="flex-3 line-dot">
-                        <span>1</span>
-                        <span>2</span>
-                        <div class="all-block">
-                            <span class="block">...</span>
-                        </div>
-                    </div>
-                    <div class="flex-3 line-operate">
-                        <button type="button" class="btn btn-danger btn-sm">删除</button>
-                        <button type="button" class="btn btn-warning btn-sm">修改</button>
-                        <button type="button" class="btn btn-default btn-sm">地图展示</button>
-                    </div>
-                </div>
-                <div class="line"></div>
+                <%--<div class="body-floor flex-row">--%>
+                    <%--<div class="flex-3 flex-row">--%>
+                        <%--<div class="flex-1 checkbox"><input type="checkbox"/></div>--%>
+                        <%--<!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->--%>
+                        <%--<div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-dot">--%>
+                        <%--<span>1</span>--%>
+                        <%--<span>2</span>--%>
+                        <%--<div class="all-block">--%>
+                            <%--<span class="block">...</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-operate">--%>
+                        <%--<button type="button" class="btn btn-danger btn-sm">删除</button>--%>
+                        <%--<button type="button" class="btn btn-warning btn-sm">修改</button>--%>
+                        <%--<button type="button" class="btn btn-default btn-sm">地图展示</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="line"></div>--%>
 
-                <div class="body-floor flex-row">
-                    <div class="flex-3 flex-row">
-                        <div class="flex-1 checkbox"><input type="checkbox"/></div>
-                        <!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->
-                        <div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>
-                    </div>
-                    <div class="flex-3 line-dot">
-                        <span>1</span>
-                        <span>2</span>
-                        <div class="all-block">
-                            <span class="block">...</span>
-                        </div>
-                    </div>
-                    <div class="flex-3 line-operate">
-                        <button type="button" class="btn btn-danger btn-sm">删除</button>
-                        <button type="button" class="btn btn-warning btn-sm">修改</button>
-                        <button type="button" class="btn btn-default btn-sm">地图展示</button>
-                    </div>
-                </div>
-                <div class="line"></div>
+                <%--<div class="body-floor flex-row">--%>
+                    <%--<div class="flex-3 flex-row">--%>
+                        <%--<div class="flex-1 checkbox"><input type="checkbox"/></div>--%>
+                        <%--<!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->--%>
+                        <%--<div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-dot">--%>
+                        <%--<span>1</span>--%>
+                        <%--<span>2</span>--%>
+                        <%--<div class="all-block">--%>
+                            <%--<span class="block">...</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-operate">--%>
+                        <%--<button type="button" class="btn btn-danger btn-sm">删除</button>--%>
+                        <%--<button type="button" class="btn btn-warning btn-sm">修改</button>--%>
+                        <%--<button type="button" class="btn btn-default btn-sm">地图展示</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="line"></div>--%>
+
+                <%--<div class="body-floor flex-row">--%>
+                    <%--<div class="flex-3 flex-row">--%>
+                        <%--<div class="flex-1 checkbox"><input type="checkbox"/></div>--%>
+                        <%--<!--<div class="flex-1 file-image"><i class="fa fa-folder-o fa-3x"></i></div>-->--%>
+                        <%--<div class="line-name flex-4"><span><a href="#">1号线路</a></span></div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-dot">--%>
+                        <%--<span>1</span>--%>
+                        <%--<span>2</span>--%>
+                        <%--<div class="all-block">--%>
+                            <%--<span class="block">...</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="flex-3 line-operate">--%>
+                        <%--<button type="button" class="btn btn-danger btn-sm">删除</button>--%>
+                        <%--<button type="button" class="btn btn-warning btn-sm">修改</button>--%>
+                        <%--<button type="button" class="btn btn-default btn-sm">地图展示</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="line"></div>--%>
             </div>
 
 

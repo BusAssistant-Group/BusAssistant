@@ -72,6 +72,12 @@
         },
         doData:function(){
             var self=this;
+            var map=self.map;
+            map.clearOverlays();
+         //   alert("before");
+            var points = new Array();
+            var index=0;
+          //  alert("after");
             //console.log(self.data);
             $.each(self.data,function(i,field){
                 var ll=field.longla.split(",");
@@ -83,7 +89,28 @@
                 //开始标记
                 self.addMarker(long,lati,info,addr);
 
+
+
+                //尝试绘制路线  start
+                var point = new BMap.Point(long, lati);
+                var tempmarker = new BMap.Marker(point);  // 创建标注
+                points[index] = tempmarker;
+                index++;
             })
+            var driving = new BMap.DrivingRoute(map);    //创建驾车实例
+            for(var i=1;i<index;i++){
+                driving.search(points[i-1], points[i]);
+            }
+            driving.setSearchCompleteCallback(function() {
+                var pts = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+
+                var polyline = new BMap.Polyline(pts);
+                polyline.setStrokeColor("red");
+                map.addOverlay(polyline);
+            });
+            //尝试绘制路线 end
+
+
         },
         addMarker:function(longitude,latitude,infomation,addr){
             var self=this;
@@ -91,6 +118,8 @@
 
             var point = new BMap.Point(longitude, latitude);
             var marker = new BMap.Marker(point);  // 创建标注
+            var label = new BMap.Label(infomation,{offset:new BMap.Size(20,-10)});
+            marker.setLabel(label);
             map.addOverlay(marker);              // 将标注添加到地图中
             map.centerAndZoom(point, 15);
             var opts = {
