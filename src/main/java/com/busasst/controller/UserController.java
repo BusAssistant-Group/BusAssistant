@@ -1,8 +1,12 @@
 package com.busasst.controller;
 import com.busasst.dao.RouteDao;
+import com.busasst.dao.StaRouDao;
+import com.busasst.dao.StationDao;
 import com.busasst.dao.UserDao;
 import com.busasst.entity.AdminEntity;
 import com.busasst.entity.RouteEntity;
+import com.busasst.entity.StaRouEntity;
+import com.busasst.entity.StationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,17 +25,30 @@ public class UserController {
     @Autowired
     @Qualifier("routeDao")
     private RouteDao routeDao;
+
+    @Autowired
+    @Qualifier("starouDao")
+    private StaRouDao starouDao;
+
     @Autowired
     @Qualifier("userDao")
     private UserDao userDao;
+
+    @Autowired
+    @Qualifier("stationDao")
+    private StationDao stationDao;
+
+
     @RequestMapping(value = "/changetoregist", method = RequestMethod.GET)
     public String changeToRegist() {
         return "regist";
     }
+
     @RequestMapping(value = "/changetologin", method = RequestMethod.GET)
     public String changeToLogin() {
         return "redirect:/index";
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST) //调用post方法
     public String login(HttpServletRequest request, String username,
                         String password, String codenum,HttpSession session) {
@@ -75,6 +92,7 @@ public class UserController {
         System.out.println("codemessage : " + codemessage);
         return "redirect:/login";
     }
+
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public String regist(HttpSession httpSession, String username, String password, String password2) {
         String reusernmaemessage = new String();
@@ -111,17 +129,27 @@ public class UserController {
         return "redirect:/user/changetoregist";
 // return "redirect:/index";
     }
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession httpSession){
         httpSession.invalidate();
         return "redirect:/index";
     }
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
+
+    @RequestMapping(value = "/linemanage", method = RequestMethod.GET)
+    public String lineManage(Model model) {
+        List<RouteEntity> routes = routeDao.getAllRoutes();
+        for(RouteEntity re:routes){
+            List<StaRouEntity> sres = starouDao.getAllStationsById(re.getRouId());
+            StationEntity station = stationDao.getById(sres.get(0).getStaId());
+            re.setDistance(station.getName());
+        }
+        model.addAttribute("routes",routes);
         return "lineManage";
     }
+
     @RequestMapping(value = "/linestation", method = RequestMethod.GET)
-    public String test2(Model model) {
+    public String lineStation(Model model) {
         List<RouteEntity> routes = routeDao.getAllRoutes();
         model.addAttribute("routes",routes);
         return "line-map";
