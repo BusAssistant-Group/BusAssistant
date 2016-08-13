@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Repository("starouDao")
 public class StaRouDao extends BaseDao{
-    public StaRouEntity getById(int userid){
-        return get(StaRouEntity.class,userid);
+    public StaRouEntity getById(int id){
+        return get(StaRouEntity.class,id);
     }
 
     public List<StaRouEntity> getAllStationsById(int id){
