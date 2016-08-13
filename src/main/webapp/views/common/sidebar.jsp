@@ -12,7 +12,7 @@
                 <li><a href="${rootPath}/worker/list"><i class="fa fa-user-plus"></i>员工信息管理</a></li>
                 <li class="active"><a href="${rootPath}/car/list"><i class="fa fa-bus"></i>车辆信息管理 </a><span
                         class="jquery-accordion-menu-label">12 </span></li>
-                <li><a href="schedual-mng.html"><i class="fa fa-table"></i>排班管理</a>
+                <li><a href="${rootPath}/schedual/watch"><i class="fa fa-table"></i>排班管理</a>
                     <ul class="submenu">
                         <li><a href="#">服务1 </a></li>
                         <li><a href="#">服务2 </a></li>
