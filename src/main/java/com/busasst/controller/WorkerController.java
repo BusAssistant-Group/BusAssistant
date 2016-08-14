@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +32,10 @@ public class WorkerController {
     private WorkerDao workerDao;
 
     @RequestMapping("/list")
-    public String list(Model model){
-        model.addAttribute("workers",workerDao.getAllWorker());
+    public String list(Model model , HttpSession session){
 
+        model.addAttribute("workers",workerDao.getAllWorker());
+        session.setAttribute("activeId",1);
         return "workers-mng";
     }
 
