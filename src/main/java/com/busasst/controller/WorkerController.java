@@ -31,7 +31,7 @@ public class WorkerController {
     private WorkerDao workerDao;
 
     @RequestMapping("/list")
-    public String list(Model model , Sess){
+    public String list(Model model){
         model.addAttribute("workers",workerDao.getAllWorker());
 
         return "workers-mng";
