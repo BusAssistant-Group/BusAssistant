@@ -30,10 +30,11 @@ public class SchedualController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/date/{year}/{month}/{day}" , method = RequestMethod.POST)
-    public List<SchedualBean> watchDetaile(@PathVariable("year") String year , @PathVariable("month")String month,
-                            @PathVariable("day")String day){
-        String date = year+"-"+month+"-"+day;
+    @RequestMapping(value = "/date" , method = RequestMethod.POST)
+    public List<SchedualBean> watchDetaile(String yearmonth , String day){
+        String yearAndMonth[] = yearmonth.split("年");
+        String month[] = yearAndMonth[1].split("月");
+        String date = yearAndMonth[0]+"-"+month[0]+"-"+day;
         return schedualDao.getDetaile(date);
     }
 
