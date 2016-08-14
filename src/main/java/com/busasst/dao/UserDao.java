@@ -29,4 +29,19 @@ public class UserDao extends BaseDao {
         if(member.isEmpty())return null;
         else return member.get(0);
     }
+
+    public List<AdminEntity> getAllUsers(){
+        String hql = "from AdminEntity";
+        Query query = query(hql);
+        List<AdminEntity> users = query.list();
+        return users;
+    }
+
+    public void updateById(int id,int level){
+        String hql = "update AdminEntity admin set admin.authority=? where adminId=?";
+        Query query = query(hql);
+        query.setInteger(0,level);
+        query.setInteger(1,id);
+        query.executeUpdate();
+    }
 }

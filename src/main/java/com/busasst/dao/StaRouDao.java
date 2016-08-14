@@ -23,4 +23,13 @@ public class StaRouDao extends BaseDao{
         List<StaRouEntity> temp = query.list();
         return temp;
     }
+
+    public void saveStaRou(int staid,int rouid){
+        StaRouEntity starou = new StaRouEntity();
+        starou.setRouId(rouid);
+        starou.setStaId(staid);
+        save(starou);
+        getSession().flush();
+        getSession().clear();
+    }
 }
