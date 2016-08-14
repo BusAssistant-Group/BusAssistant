@@ -167,9 +167,13 @@ function getData(yearmonth,day){
                 data:{
                     yearmonth:self.yearmonth,
                     day:self.val
-                }
+                },
+                async : true, //默认为true 异步
                 success:function(data){
-
+                    self.data=data;
+                },error:function(){
+                    console.log("获取错误");
+                    return "error";
                 }
             })
         },
@@ -181,9 +185,12 @@ function getData(yearmonth,day){
                 day:self.val
             };
 
+            var html=template('Tpopstation',data);    //初步渲染模板
+            //console.log("html:"+html);
+            //插入获取的数据
+            console.log(self.data);
 
-            var html=template('Tpopstation',data);
-            console.log("html:"+html);
+
             $("body").append(html);
             var mask='<div class="mask"></div>';
             $("body").append(mask);

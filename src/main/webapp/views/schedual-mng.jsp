@@ -199,14 +199,14 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
+                <%--<tr>--%>
+                    <%--<td>{{linename}}</td>--%>
+                    <%--<td>{{start}}</td>--%>
+                    <%--<td>{{end}}</td>--%>
+                    <%--<td>{{sitman}}</td>--%>
+                    <%--<td>{{carman}}</td>--%>
+                    <%--<td>{{car}}</td>--%>
+                <%--</tr>--%>
                 <tr>
                     <td>线路1</td>
                     <td>起点1</td>
