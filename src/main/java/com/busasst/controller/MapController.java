@@ -81,8 +81,8 @@ public class MapController {
 
 
 
-        List<RouteEntity> routes = routeDao.getAllRoutes();
-        model.addAttribute("routes",routes);
-        return "line-map";
+//        List<RouteEntity> routes = routeDao.getAllRoutes();
+//        model.addAttribute("routes",routes);
+        return "redirect:/user/linestation";
     }
 }

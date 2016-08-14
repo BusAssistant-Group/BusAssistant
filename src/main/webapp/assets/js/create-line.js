@@ -29,16 +29,16 @@
             index++;
             self.datastring += long+","+lat+"#";
             console.log(self.datastring);
-            alert(index);
-            alert(e.type);
-            alert(e.target);
-            alert(e.pixel);
+            //alert(index);
+            //alert(e.type);
+            //alert(e.target);
+            //alert(e.pixel);
             map.addOverlay(marker);              // 将标注添加到地图中
             map.centerAndZoom(point, 15);
             //alert('点击坐标: '+ e.point.lng +', '+ e.point.lat);
             var driving = new BMap.DrivingRoute(map);    //创建驾车实例
             if(index>1){
-                alert("开始绘制线路！");
+               // alert("开始绘制线路！");
                // map.clearOverlays();
 
                 for(var i=1;i<index;i++){
@@ -57,7 +57,6 @@
         });
 
         //对鼠标点击事件的监听  end
-        alert(index);
 
         $(".confirm").click(function(){
             console.log("点击了");
@@ -82,6 +81,7 @@
                 success:function(data){
                     //self.data=data;
                     //self.doData();
+                    window.location.href="/busasst/user/linestation";
                     console.log("发送成功")
                 },error:function(){
                     console.log("获取错误");

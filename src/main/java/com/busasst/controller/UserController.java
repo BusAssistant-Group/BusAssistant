@@ -150,6 +150,7 @@ public class UserController {
 
     @RequestMapping(value = "/linestation", method = RequestMethod.GET)
     public String lineStation(Model model) {
+        System.out.println("linestation");
         List<RouteEntity> routes = routeDao.getAllRoutes();
         model.addAttribute("routes",routes);
         return "line-map";
