@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
@@ -154,5 +155,18 @@ public class UserController {
         List<RouteEntity> routes = routeDao.getAllRoutes();
         model.addAttribute("routes",routes);
         return "line-map";
+    }
+
+    @RequestMapping(value = "/systemmng", method = RequestMethod.GET)
+    public String systemMng(Model model) {
+        List<AdminEntity>users = userDao.getAllUsers();
+        model.addAttribute("users",users);
+        return "system-mng";
+    }
+
+    @RequestMapping(value = "/become/{id}/{level}" , method = RequestMethod.POST)
+    public String deleteWorker(@PathVariable("id") int id,@PathVariable("level") int level){
+        userDao.updateById(id,level);
+        return "redirect:/user/systemmng";
     }
 }

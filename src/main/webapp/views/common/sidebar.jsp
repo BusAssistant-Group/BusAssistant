@@ -16,7 +16,7 @@
                 <li><a href="${rootPath}/schedual/watch"><i class="fa fa-table"></i>排班管理</a></li>
                 <li><a href="${rootPath}/user/linestation"><i class="fa fa-level-up"></i>线路与站点管理</a></li>
                 <li><a href="${rootPath}/user/linemanage"><i class="fa fa-bar-chart"></i>统计分析</a></li>
-                <li><a href="system-mng.html"><i class="fa fa-cogs"></i>系统管理</a></li>
+                <li><a href="${rootPath}/user/systemmng"><i class="fa fa-cogs"></i>系统管理</a></li>
             </ul>
             <div class="jquery-accordion-menu-footer">
                 Footer
