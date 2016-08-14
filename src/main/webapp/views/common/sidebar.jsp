@@ -10,10 +10,12 @@
                     BusAssistant
                 </div>
 
-                <c:set var="class1" value="">
-                    <c:if test="${activeId}==1" var="${class1='active'}"/>
-                    <li class="${active}"><a href="${rootPath}/worker/list"><i class="fa fa-user-plus"></i>员工信息管理</a></li>
-                </c:set>
+                <c:set var="class1" value=" "></c:set>
+                    <c:if test="${activeId==1}">
+                       <c:set var="class1" value="active"></c:set>
+                    </c:if>
+                    <li class="${class1}"><a href="${rootPath}/worker/list"><i class="fa fa-user-plus"></i>员工信息管理</a></li>
+
                 <li class="active"><a href="${rootPath}/car/list"><i class="fa fa-bus"></i>车辆信息管理 </a></li>
 
                 <li><a href="${rootPath}/schedual/watch"><i class="fa fa-table"></i>排班管理</a></li>
