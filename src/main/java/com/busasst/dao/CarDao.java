@@ -42,10 +42,11 @@ public class CarDao extends BaseDao{
             save(bus);
 
             getSession().flush();
+            getSession().clear();
+
+//            getSession().flush();
             //getSession().merge(bus);
            // getSession().clear();
-           // getSession().merge(bus);
-
 //            return new MessageStatus("添加成功！",1);
         }else {
            // getSession().refresh(bus);

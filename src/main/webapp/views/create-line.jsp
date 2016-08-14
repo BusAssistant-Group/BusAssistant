@@ -124,23 +124,23 @@
 
             <div class="map">
 
-                <div class="alldot scroll">
-                    <%--<div class="dot" longitude="118.46" latitude="32.03">南京</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot" longitude="113.14" latitude="23.16" id="test">广东</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">上海</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">厦门</div>--%>
-                    <%--<div class="line"></div>--%>
-                    <%--<div class="dot">1号站点</div>--%>
-                    <c:forEach var="route" items="${routes}">
-                        <div class="dot" dataid="${route.rouId}">${route.name}</div>
-                        <div class="line"></div>
-                    </c:forEach>
-                        <div class="dot" io="create"><a href="${rootPath}/map/createline">创建新线路</a></div>
-                        <div class="line"></div>
-                </div>
+                <%--<div class="alldot scroll">--%>
+                    <%--&lt;%&ndash;<div class="dot" longitude="118.46" latitude="32.03">南京</div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="line"></div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="dot" longitude="113.14" latitude="23.16" id="test">广东</div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="line"></div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="dot">上海</div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="line"></div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="dot">厦门</div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="line"></div>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<div class="dot">1号站点</div>&ndash;%&gt;--%>
+                    <%--<c:forEach var="route" items="${routes}">--%>
+                        <%--<div class="dot" dataid="${route.rouId}">${route.name}</div>--%>
+                        <%--<div class="line"></div>--%>
+                    <%--</c:forEach>--%>
+                        <%--<div class="dot" io="create"><a href="${rootPath}/map/createline">创建新线路</a></div>--%>
+                        <%--<div class="line"></div>--%>
+                <%--</div>--%>
                 <div id="allmap"></div>
                 <!--<div id="r-result" style="width: 100%"></div>-->
                 <div id="driving_way">
@@ -351,12 +351,12 @@
 </script>
 
 <script>
-//    $("#create").click(function(){
-//        var longgitude=$(this).attr("longitude");
-//        var latitude=$(this).attr("latitude");
-//        addMarker(longgitude,latitude);
-//        map.panTo(new BMap.Point(longgitude,latitude));   //两秒后移动到广州
-//    })
+    $("#create").click(function(){
+        var longgitude=$(this).attr("longitude");
+        var latitude=$(this).attr("latitude");
+        addMarker(longgitude,latitude);
+        map.panTo(new BMap.Point(longgitude,latitude));   //两秒后移动到广州
+    })
 
 </script>
 

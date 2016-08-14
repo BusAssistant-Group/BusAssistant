@@ -41,4 +41,10 @@ public class MapController {
         }
         return stations;
     }
+
+
+    @RequestMapping(value = "/createline", method = RequestMethod.GET)
+    public String createLine(){
+        return "create-line";
+    }
 }
