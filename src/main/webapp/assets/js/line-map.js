@@ -48,6 +48,13 @@
             self.id=$(this).attr("dataid");
             self.getData();
         })
+
+        $(".improve").click(function(){
+            console.log("点击了");
+            self.id=22;
+            self.getData();
+        })
+
         /*this.input_init();*/
     };
     //定义Popwin的方法
@@ -87,7 +94,9 @@
                 var addr=field.address;
 
                 //开始标记
-                self.addMarker(long,lati,info,addr);
+             if(self.id!=21){
+                 self.addMarker(long,lati,info,addr);
+             }
 
 
 
@@ -107,6 +116,11 @@
                 var polyline = new BMap.Polyline(pts);
                 polyline.setStrokeColor("red");
                 map.addOverlay(polyline);
+               // alert(self.id);
+                if(self.id==21){
+                    map.addOverlay(points[0]);
+                    map.addOverlay(points[index-1]);
+                }
             });
             //尝试绘制路线 end
 

@@ -149,7 +149,7 @@
                         <option value="1">最短距离</option>
                         <option value="2">避开高速</option>
                     </select>
-                    <input type="button" id="result" value="查询"/>
+                    <input type="button" class="improve" id="result" value="线路优化"/>
                 </div>
                 <div id="r-result"></div>
 
