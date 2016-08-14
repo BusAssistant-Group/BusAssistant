@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>BusAssistant</title>
 </head>
 <link rel="stylesheet" href="${assetsPath}/css/app.min.css"/>
 
