@@ -87,8 +87,8 @@
             <div class="map">
 
                 <%--<div class="alldot scroll">--%>
-                    <%--&lt;%&ndash;<div class="dot" longitude="118.46" latitude="32.03">南京</div>&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;<div class="line"></div>&ndash;%&gt;--%>
+                    <%--<div class="dot" longitude="118.46" latitude="32.03">南京</div>--%>
+                    <%--<div class="line"></div>--%>
                     <%--&lt;%&ndash;<div class="dot" longitude="113.14" latitude="23.16" id="test">广东</div>&ndash;%&gt;--%>
                     <%--&lt;%&ndash;<div class="line"></div>&ndash;%&gt;--%>
                     <%--&lt;%&ndash;<div class="dot">上海</div>&ndash;%&gt;--%>
@@ -112,6 +112,11 @@
                         <option value="2">避开高速</option>
                     </select>
                     <input type="button" id="result" value="查询"/>
+                    <form method="post" action="${rootPath}/map/confirm">
+                        <input type="hidden" value="23424234123414" name="datastring"/>
+                        <input type="submit" id="confirm" value="确定"/>
+                    </form>
+                    <button class="confirm" value="确定"/>
                 </div>
                 <div id="r-result"></div>
 
@@ -128,7 +133,7 @@
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mKVc381HERXY2k81WwYCdyLoUBXdDfaW"></script>
 <%--线路显示站点--%>
-<script src="${assetsPath}/js/line-map.js" charset="utf-8"></script>
+<script src="${assetsPath}/js/create-line.js" charset="utf-8"></script>
 <script>
     $(function(){
         var mapB = new BMap.Map("allmap");
