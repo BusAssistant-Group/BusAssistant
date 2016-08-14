@@ -150,16 +150,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/linestation", method = RequestMethod.GET)
-    public String lineStation(Model model) {
+    public String lineStation(Model model , HttpSession session) {
         System.out.println("linestation");
+        session.setAttribute("activeId",4);
         List<RouteEntity> routes = routeDao.getAllRoutes();
         model.addAttribute("routes",routes);
         return "line-map";
     }
 
     @RequestMapping(value = "/systemmng", method = RequestMethod.GET)
-    public String systemMng(Model model) {
+    public String systemMng(Model model , HttpSession session) {
         List<AdminEntity>users = userDao.getAllUsers();
+        session.setAttribute("activeId",6);
         model.addAttribute("users",users);
         return "system-mng";
     }

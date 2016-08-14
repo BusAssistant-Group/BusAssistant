@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,8 @@ public class SchedualController {
     private SchedualDao schedualDao;
 
     @RequestMapping(value = "/watch" , method = RequestMethod.GET)
-    public String watchSchedual(Model model){
+    public String watchSchedual(HttpSession session){
+        session.setAttribute("activeId",3);
         return "schedual-mng";
     }
 

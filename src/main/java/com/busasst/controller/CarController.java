@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.sql.Timestamp;
 import java.util.Map;
@@ -27,7 +28,8 @@ public class CarController {
     private CarDao carDao;
 
     @RequestMapping("/list")
-    public String list(Model model){
+    public String list(Model model , HttpSession session){
+        session.setAttribute("activeId",2);
         model.addAttribute("cars",carDao.getAll());
         return "cars-mng";
     }
