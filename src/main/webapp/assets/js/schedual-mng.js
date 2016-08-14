@@ -135,13 +135,6 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
 }
 
 
-//zqh start
-function getData(yearmonth,day){
-   // $.getJS
-}
-
-//zqh end
-
 
 ;(function($){  ///这样写的意义是思路比较清晰
     var Schedual=function(){
