@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Repository("routeDao")
 public class RouteDao extends BaseDao {
+
     public RouteEntity getById(int id) {
         return get(RouteEntity.class, id);
     }

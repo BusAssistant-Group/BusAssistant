@@ -15,15 +15,17 @@ public class SchedualBean {
     private String driverName;
     private String busNumber;
     private String routeName;
+    private int seatNum;
 
     public SchedualBean(String time, String date, String startStation,
-                        String driverName, String busNumber, String routeName) {
+                        String driverName, String busNumber, String routeName, int seatNum) {
         this.time = time;
         this.date = date;
         this.startStation = startStation;
         this.driverName = driverName;
         this.busNumber = busNumber;
         this.routeName = routeName;
+        this.seatNum = seatNum;
     }
 
     public Integer getDriverId() {
@@ -104,5 +106,13 @@ public class SchedualBean {
 
     public void setRouteName(String routeName) {
         this.routeName = routeName;
+    }
+
+    public int getSeatNum() {
+        return seatNum;
+    }
+
+    public void setSeatNum(int seatNum) {
+        this.seatNum = seatNum;
     }
 }
