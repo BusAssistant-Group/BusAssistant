@@ -150,10 +150,6 @@
                         <option value="2">避开高速</option>
                     </select>
                     <input type="button" id="result" value="查询"/>
-                    <form method="post" action="${rootPath}/map/confirm">
-                        <input type="hidden" value="23424234123414" name="datastring"/>
-                        <input type="submit" id="confirm" value="确定"/>
-                    </form>
                     <button class="confirm" value="确定"/>
                 </div>
                 <div id="r-result"></div>
@@ -175,7 +171,7 @@
 <script>
     $(function(){
         var mapB = new BMap.Map("allmap");
-        var map=new Map(mapB);
+        var map=new CreateMap(mapB);
     })
 </script>
 

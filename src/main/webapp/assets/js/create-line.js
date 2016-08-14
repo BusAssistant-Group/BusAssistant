@@ -1,11 +1,11 @@
 
 ;(function($, window, document,undefined) {        //封闭的命名空间
     //定义Map的构造函数
-    var Map = function(map) {
+    var CreateMap = function(map) {
         var self=this;
         var points = new Array();
         var index=0;
-        var datastring;
+        self.datastring="";
 
         self.id;
         self.data;
@@ -27,7 +27,8 @@
             var marker = new BMap.Marker(point);  // 创建标注
             points[index] = marker;
             index++;
-            datastring += long+","+lat+"#";
+            self.datastring += long+","+lat+"#";
+            console.log(self.datastring);
             alert(index);
             alert(e.type);
             alert(e.target);
@@ -56,7 +57,7 @@
         });
 
         //对鼠标点击事件的监听  end
-alert(index);
+        alert(index);
 
         $(".confirm").click(function(){
             console.log("点击了");
@@ -65,7 +66,7 @@ alert(index);
         })
     };
     //定义Popwin的方法
-    Map.prototype = {
+    CreateMap.prototype = {
         tips:function(){
             var self=this;
         },
@@ -73,14 +74,15 @@ alert(index);
         getData:function(){
             var self=this;
             $.ajax({
-                url:'/busasst/map/confirm/',                 //${rootPath}失效
-                data:"datastring="+datastring,
-                dataType:'string',
+                url:'/busasst/map/confirm',                 //${rootPath}失效
+                data:{datastring:self.datastring},
+                //dataType:'string',
                 type:'post',
                 async : false, //默认为true 异步
                 success:function(data){
-                    self.data=data;
-                    self.doData();
+                    //self.data=data;
+                    //self.doData();
+                    console.log("发送成功")
                 },error:function(){
                     console.log("获取错误");
                     return "error";
@@ -153,5 +155,5 @@ alert(index);
             });
         }
     };
-    window["Map"]=Map;      //这里将插件暴露出去，可以实例化
+    window["CreateMap"]=CreateMap;      //这里将插件暴露出去，可以实例化
 })(jQuery, window, document);

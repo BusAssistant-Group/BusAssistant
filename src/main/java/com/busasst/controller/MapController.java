@@ -1,7 +1,9 @@
 package com.busasst.controller;
 
+import com.busasst.dao.RouteDao;
 import com.busasst.dao.StaRouDao;
 import com.busasst.dao.StationDao;
+import com.busasst.entity.RouteEntity;
 import com.busasst.entity.StaRouEntity;
 import com.busasst.entity.StationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,10 @@ public class MapController {
     @Qualifier("starouDao")
     private StaRouDao staRouDao;
 
+    @Autowired
+    @Qualifier("routeDao")
+    private RouteDao routeDao;
+
     @ResponseBody
     @RequestMapping(value = "/getstations/{id}", method = RequestMethod.GET)
     public List<StationEntity> getStation(@PathVariable("id") int id) {
@@ -49,8 +55,34 @@ public class MapController {
     }
 
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
-    public String confirm(String datastring){
+    public String confirm(Model model,String datastring){
         System.out.println(datastring);
-        return "create-line";
+        String points[] = datastring.split("#");
+        for(String s:points){
+            System.out.println(s);
+        }
+        int index=0;
+        for(String s:points){
+            if(!s.isEmpty()){
+                System.out.println(s);
+                stationDao.saveSation(s);
+                index++;
+            }
+        }
+        int maxid = routeDao.getMaxId();
+        maxid++;
+        routeDao.saveRoute("line"+maxid,index);
+        maxid = routeDao.getMaxId();
+        int maxstaid = stationDao.getMaxId();
+        for(int i=0;i<index;i++){
+            staRouDao.saveStaRou(maxstaid-i,maxid);
+        }
+
+
+
+
+        List<RouteEntity> routes = routeDao.getAllRoutes();
+        model.addAttribute("routes",routes);
+        return "line-map";
     }
 }

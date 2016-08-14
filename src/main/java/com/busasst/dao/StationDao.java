@@ -20,5 +20,23 @@ public class StationDao extends BaseDao{
         return get(StationEntity.class,userid);
     }
 
+    public void saveSation(String lonlat){
+        StationEntity station = new StationEntity();
+        System.out.println("stationdao");
+        station.setLongla(lonlat);
+        System.out.println("middle");
+        save(station);
+        getSession().flush();
+        getSession().clear();
+        System.out.println("end stationdao");
+    }
+
+    public int getMaxId(){
+        String hql = "select max(station.staId) from StationEntity as station";
+        Query query = query(hql);
+        int maxid = (int)query.uniqueResult();
+        System.out.println("maxid:--------------------->"+maxid);
+        return maxid;
+    }
 
 }
