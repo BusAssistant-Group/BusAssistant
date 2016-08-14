@@ -31,14 +31,27 @@ public class CarDao extends BaseDao{
 
 
 
-    public MessageStatus insert(String number, String brand, Integer seatnum, String registdate,
+    public void insert(String number, String brand, int seatnum, String registdate,
                                 String  insurancedate, String vehiclelicense){
+
+        BusEntity bus = new BusEntity(number,brand,Integer.valueOf(seatnum),registdate,insurancedate,vehiclelicense);
+
         if(!exists(number)){
-            BusEntity bus = new BusEntity(number,brand,seatnum,registdate,insurancedate,vehiclelicense);
+
+          //  getSession().clear();
             save(bus);
-            return new MessageStatus("添加成功！",1);
+
+            getSession().flush();
+            getSession().clear();
+
+//            getSession().flush();
+            //getSession().merge(bus);
+           // getSession().clear();
+//            return new MessageStatus("添加成功！",1);
+        }else {
+           // getSession().refresh(bus);
         }
-        return new MessageStatus("该员工已存在！",0);
+//        return new MessageStatus("该员工已存在！",0);
     }
 
 

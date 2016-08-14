@@ -104,6 +104,14 @@
             </table>
 
             <button id="new-car" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_car">添加车辆</button>
+
+            <div>
+                <form action="${rootPath}/car/addByFile" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file">
+                    <input type="submit" value="提交">
+                </form>
+            </div>
+
         </div>
     </div>
 
