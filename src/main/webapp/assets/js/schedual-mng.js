@@ -9,16 +9,16 @@ $(function(){
 
 
 
-    var schedual=new Schedual();            //ÎªÁË·½±ã´«¸ü¶àµÄ³õÊ¼»¯²ÎÊı
+    var schedual=new Schedual();            //ä¸ºäº†æ–¹ä¾¿ä¼ æ›´å¤šçš„åˆå§‹åŒ–å‚æ•°
 })
 
-function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕÀú,fÎªÔØÈëÈİÆ÷µÄID,callbackÎª»Øµ÷ÄÚÈİ£¬»á·µ»ØÒ»Ğ©¿ÉÄÜĞèÒª²ÎÊı*/
+function my_table(e, f, callback) { /*eå‚æ•°æ ¼å¼ä¸ºy/m/d,å¿…å¡«ä¼ å…¥nowåˆ™è·å¾—ä»Šå¤©çš„æ—¥å†,fä¸ºè½½å…¥å®¹å™¨çš„ID,callbackä¸ºå›è°ƒå†…å®¹ï¼Œä¼šè¿”å›ä¸€äº›å¯èƒ½éœ€è¦å‚æ•°*/
     if (e == 'now') e = GetDateStr(0);
     var now_date = e;
     var week_no = new Date(now_date).getDay();
     var date_size = getCountDays(now_date);
     var my_date = document.getElementById(f);
-    //my_date.innerHTML = '<p><label id="pre_date"><</label>' + now_date.split('/')[0] + 'Äê' + now_date.split('/')[1] + 'ÔÂ<label id="n_date">></label></p><table border="1"><thead><tr><td>ÈÕ</td><td>Ò»</td><td>¶ş</td><td>Èı</td><td>ËÄ</td><td>Îå</td><td>Áù</td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>';
+    //my_date.innerHTML = '<p><label id="pre_date"><</label>' + now_date.split('/')[0] + 'å¹´' + now_date.split('/')[1] + 'æœˆ<label id="n_date">></label></p><table border="1"><thead><tr><td>æ—¥</td><td>ä¸€</td><td>äºŒ</td><td>ä¸‰</td><td>å››</td><td>äº”</td><td>å…­</td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>';
 
     var nData={
         year:now_date.split('/')[0],
@@ -53,7 +53,7 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
     n_date = n_date[0] + '/' + n_date[1] + '/' + n_date[2];
     var n_week_no = new Date(n_date).getDay();
     var n_date_size = getCountDays(n_date);
-    var data = {}; //»Øµ÷·µ»ØÊı¾İ
+    var data = {}; //å›è°ƒè¿”å›æ•°æ®
     data.now_date = now_date;
     data.week_no = week_no;
     data.date_size = date_size;
@@ -78,13 +78,13 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
     }
     if(callback)callback(data);
 
-    document.getElementById('pre_date').onclick = function() {  //ÉÏÒ»¸öÔÂ
-        var ntitle = this.parentNode.innerText.split('Äê');
+    document.getElementById('pre_date').onclick = function() {  //ä¸Šä¸€ä¸ªæœˆ
+        var ntitle = this.parentNode.innerText.split('å¹´');
         var y = ntitle[0];
         y = y.split('<');
         y = y[1];
         var m = ntitle[1];
-        m = m.split('ÔÂ');
+        m = m.split('æœˆ');
         m = m[0];
         m = m - 1;
         if (m <= 0) {
@@ -97,13 +97,13 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
         my_table(y + '/' + m + '/01', f);
     }
 
-    document.getElementById('n_date').onclick = function() {    //ÏÂÒ»¸öÔÂ
-        var ntitle = this.parentNode.innerText.split('Äê');
+    document.getElementById('n_date').onclick = function() {    //ä¸‹ä¸€ä¸ªæœˆ
+        var ntitle = this.parentNode.innerText.split('å¹´');
         var y = ntitle[0];
         y = y.split('<');
         y = y[1];
         var m = ntitle[1];
-        m = m.split('ÔÂ');
+        m = m.split('æœˆ');
         m = m[0];
         m = Number(m) + 1;
         if (m > 12) {
@@ -116,7 +116,7 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
         my_table(y + '/' + m + '/01', f);
     }
 
-    function getCountDays(e) { //»ñÈ¡µ±Ç°ÈÕÆÚËùÔÚµÄÔÂÓĞ¶àÉÙÌì
+    function getCountDays(e) { //è·å–å½“å‰æ—¥æœŸæ‰€åœ¨çš„æœˆæœ‰å¤šå°‘å¤©
         var curDate = new Date(e);
         var curMonth = curDate.getMonth();
         curDate.setMonth(curMonth + 1);
@@ -126,15 +126,24 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
 
     function GetDateStr(AddDayCount) {
         var dd = new Date();
-        dd.setDate(dd.getDate() + AddDayCount); //»ñÈ¡AddDayCountÌìºóµÄÈÕÆÚ
+        dd.setDate(dd.getDate() + AddDayCount); //è·å–AddDayCountå¤©åçš„æ—¥æœŸ
         var y = dd.getFullYear();
-        var m = dd.getMonth() + 1; //»ñÈ¡µ±Ç°ÔÂ·İµÄÈÕÆÚ
+        var m = dd.getMonth() + 1; //è·å–å½“å‰æœˆä»½çš„æ—¥æœŸ
         var d = dd.getDate();
         return y + "/" + m + "/" + d;
     };
 }
 
-;(function($){  ///ÕâÑùĞ´µÄÒâÒåÊÇË¼Â·±È½ÏÇåÎú
+
+//zqh start
+function getData(yearmonth,day){
+   // $.getJS
+}
+
+//zqh end
+
+
+;(function($){  ///è¿™æ ·å†™çš„æ„ä¹‰æ˜¯æ€è·¯æ¯”è¾ƒæ¸…æ™°
     var Schedual=function(){
         var self=this;
         console.log(";dfdfd");
@@ -155,6 +164,8 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
                 yearmonth:self.yearmonth,
                 day:self.val
             };
+
+
             var html=template('Tpopstation',data);
             console.log("html:"+html);
             $("body").append(html);
@@ -164,7 +175,7 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
             $(".schedual-mng-popStation").fadeIn(400);
 
 
-            //½øĞĞÊÂ¼ş°ó¶¨
+            //è¿›è¡Œäº‹ä»¶ç»‘å®š
             $(".close").click(function () {
                 $(".mask").fadeOut(300,function(){
                     $(this).remove();
@@ -173,7 +184,7 @@ function my_table(e, f, callback) { /*e²ÎÊı¸ñÊ½Îªy/m/d,±ØÌî´«ÈënowÔò»ñµÃ½ñÌìµÄÈÕ
                     $(this).remove();
                 })
             })
-            //°ó¶¨¹ö¶¯Ìõ
+            //ç»‘å®šæ»šåŠ¨æ¡
             self.startScroll();
         },
         startScroll:function(){
