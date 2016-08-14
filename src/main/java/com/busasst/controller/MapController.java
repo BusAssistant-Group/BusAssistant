@@ -47,4 +47,10 @@ public class MapController {
     public String createLine(){
         return "create-line";
     }
+
+    @RequestMapping(value = "/confirm", method = RequestMethod.POST)
+    public String confirm(String datastring){
+        System.out.println(datastring);
+        return "create-line";
+    }
 }
