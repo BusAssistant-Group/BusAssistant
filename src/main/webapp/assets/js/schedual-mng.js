@@ -148,26 +148,49 @@ function getData(yearmonth,day){
         var self=this;
         console.log(";dfdfd");
         self.val;
+        self.yearmonth=$("#watchtime").text().substring(0);
 
         $(document).on("click","#table-time tbody td",function(event){
             self.val=$(this).text();
+            self.getData();
             self.poptime();
         })
 
         //strartScroll();
     };
     Schedual.prototype={
+        getData:function(){
+            var self=this;
+            $.ajax({
+                type:"POST",
+                url:"/busasst/schedual/date",
+                data:{
+                    yearmonth:self.yearmonth,
+                    day:self.val
+                },
+                async : true, //默认为true 异步
+                success:function(data){
+                    self.data=data;
+                },error:function(){
+                    console.log("获取错误");
+                    return "error";
+                }
+            })
+        },
         poptime:function(){
             var self=this;
-            self.yearmonth=$("#watchtime").text().substring(0);
+            //self.yearmonth=$("#watchtime").text().substring(0);
             var data={
                 yearmonth:self.yearmonth,
                 day:self.val
             };
 
+            var html=template('Tpopstation',data);    //初步渲染模板
+            //console.log("html:"+html);
+            //插入获取的数据
+            console.log(self.data);
 
-            var html=template('Tpopstation',data);
-            console.log("html:"+html);
+
             $("body").append(html);
             var mask='<div class="mask"></div>';
             $("body").append(mask);
