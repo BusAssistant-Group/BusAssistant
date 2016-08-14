@@ -142,12 +142,16 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
 
         $(document).on("click","#table-time tbody td",function(event){
             self.val=$(this).text();
+            self.getData();
             self.poptime();
         })
 
         //strartScroll();
     };
     Schedual.prototype={
+        getData:function(){
+
+        },
         poptime:function(){
             var self=this;
             self.yearmonth=$("#watchtime").text().substring(0);
