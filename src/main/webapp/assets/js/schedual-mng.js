@@ -164,6 +164,7 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
                 async : true, //默认为true 异步
                 success:function(data){
                     self.data=data;
+                    console.log(data);
                 },error:function(){
                     console.log("获取错误");
                     return "error";
