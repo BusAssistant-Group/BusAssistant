@@ -139,6 +139,7 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
         var self=this;
         console.log(";dfdfd");
         self.val;
+        self.yearmonth=$("#watchtime").text().substring(0);
 
         $(document).on("click","#table-time tbody td",function(event){
             self.val=$(this).text();
@@ -150,11 +151,22 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
     };
     Schedual.prototype={
         getData:function(){
+            var self=this;
+            $.ajax({
+                type:"POST",
+                url:"/busasst/schedual/date",
+                data:{
+                    yearmonth:self.yearmonth,
+                    day:self.val
+                }
+                success:function(data){
 
+                }
+            })
         },
         poptime:function(){
             var self=this;
-            self.yearmonth=$("#watchtime").text().substring(0);
+            //self.yearmonth=$("#watchtime").text().substring(0);
             var data={
                 yearmonth:self.yearmonth,
                 day:self.val
