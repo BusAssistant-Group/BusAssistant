@@ -69,6 +69,7 @@
 
     <div class="contents flex-8">
         <div id="workers-mng">
+           
             <table class="table">
                 <thead>
                 <tr>
