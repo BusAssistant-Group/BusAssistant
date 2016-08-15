@@ -146,7 +146,7 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
         $(document).on("click","#table-time tbody td",function(event){
             self.val=$(this).text();
             self.getData();
-            self.poptime();
+            //self.poptime();
         })
 
         //strartScroll();
@@ -164,7 +164,8 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
                 async : true, //默认为true 异步
                 success:function(data){
                     self.data=data;
-                    console.log(data);
+                    //console.log(data);
+                    self.poptime();
                 },error:function(){
                     console.log("获取错误");
                     return "error";
@@ -174,9 +175,11 @@ function my_table(e, f, callback) { /*e参数格式为y/m/d,必填传入now则�
         poptime:function(){
             var self=this;
             //self.yearmonth=$("#watchtime").text().substring(0);
+            console.log(self.data);
             var data={
                 yearmonth:self.yearmonth,
-                day:self.val
+                day:self.val,
+                list:self.data
             };
 
             var html=template('Tpopstation',data);    //初步渲染模板

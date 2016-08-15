@@ -38,6 +38,9 @@ public class SchedualController {
         System.out.println(day);
 
         String yearAndMonth[] = yearmonth.split("年");
+        for(String Out:yearAndMonth){
+            System.out.println("dfdf"+Out);
+        }
         String month[] = yearAndMonth[1].split("月");
         String date = yearAndMonth[0]+"-"+month[0]+"-"+day;
         System.out.println(date);
