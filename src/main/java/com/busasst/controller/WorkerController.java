@@ -33,6 +33,7 @@ public class WorkerController {
 
     @RequestMapping("/list")
     public String list(Model model , HttpSession session){
+
         model.addAttribute("workers",workerDao.getAllWorker());
         session.setAttribute("activeId",1);
         return "workers-mng";

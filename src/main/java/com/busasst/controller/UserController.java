@@ -88,9 +88,10 @@ public class UserController {
         session.setAttribute("usernmaemessage",usernmaemessage);
         session.setAttribute("passwordmessage",passwordmessage);
         session.setAttribute("codemessage",codemessage);
-        System.out.println("usernmaemessage : " + usernmaemessage);
+        System.out.println("usernmaemessage : 用户名不存在gagag" + usernmaemessage);
         System.out.println("passwordmessage : " + passwordmessage);
         System.out.println("codemessage : " + codemessage);
+        System.out.println("吗的中文乱码");
         return "redirect:/login";
     }
 
