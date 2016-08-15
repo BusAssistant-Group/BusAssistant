@@ -25,22 +25,31 @@ public class SchedualController {
     @Autowired
     private SchedualDao schedualDao;
 
-    @RequestMapping(value = "/watch" , method = RequestMethod.GET)
+    @RequestMapping(value = "/list" , method = RequestMethod.GET)
     public String watchSchedual(HttpSession session){
         session.setAttribute("activeId",3);
         return "schedual-mng";
     }
 
+
+    @RequestMapping(value = "/add" , method = RequestMethod.POST)
+    public String addSchedual(){
+
+        return "redirect:/schedual/list";
+    }
+
+    @RequestMapping(value = "/addshow" , method = RequestMethod.GET)
+    public String addSchedualShow(){
+
+        return "schedual-do";
+    }
+
+
     @ResponseBody
     @RequestMapping(value = "/date" , method = RequestMethod.POST)
     public List<SchedualBean> watchDetaile(String yearmonth , String day){
-        System.out.println(yearmonth);
-        System.out.println(day);
 
         String yearAndMonth[] = yearmonth.split("年");
-        for(String Out:yearAndMonth){
-            System.out.println("dfdf"+Out);
-        }
         String month[] = yearAndMonth[1].split("月");
         String date = yearAndMonth[0]+"-"+month[0]+"-"+day;
         System.out.println(date);

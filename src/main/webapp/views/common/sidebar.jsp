@@ -26,7 +26,7 @@
                 <c:if test="${activeId==3}">
                     <c:set var="class3" value="active"></c:set>
                 </c:if>
-                <li class="${class3}"><a href="${rootPath}/schedual/watch"><i class="fa fa-table"></i>排班管理</a></li>
+                <li class="${class3}"><a href="${rootPath}/schedual/list"><i class="fa fa-table"></i>排班管理</a></li>
 
                 <c:set var="class4" value=""></c:set>
                 <c:if test="${activeId==4}">
