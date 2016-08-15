@@ -112,7 +112,7 @@
                         <option value="2">避开高速</option>
                     </select>
                     <input type="button" id="result" value="查询"/>
-                    <button class="confirm" value="确定"/>
+                    <button class="confirm">确定</button>
                 </div>
                 <div id="r-result"></div>
 

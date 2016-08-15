@@ -245,7 +245,6 @@
 </div><!-- /.modal -->
 </div>
 
-<<<<<<< HEAD
 <script type="text/javascript">
     $('.deleteBt').click(function(){
         var id=$(this).attr("datavalue");
@@ -257,7 +256,6 @@
 
 </script>
 
-=======
 <script>
     $('.form_date').datetimepicker({
         format: 'yyyy-mm-dd',
@@ -270,6 +268,5 @@
         forceParse: 0
     });
 </script>
->>>>>>> dbcd163f79ef8a160b603c78811ac8ac53e9f36d
 </body>
 </html>

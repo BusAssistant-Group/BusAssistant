@@ -69,7 +69,7 @@
 
     <div class="contents flex-8">
         <div id="workers-mng">
-           
+
             <table class="table">
                 <thead>
                 <tr>
@@ -90,7 +90,7 @@
 
                         <td>
                             <button id="hr" datavalue="${user.adminId}" class="btn btn-danger btn-slim deleteHR" type="button">成为HR</button>
-                        </td>>
+                        </td>
                         <td>
                             <button id="line-manager" datavalue="${user.adminId}" class="btn btn-danger btn-slim deleteBt" type="button">成为线路管理员</button>
                         </td>
