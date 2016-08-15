@@ -205,78 +205,24 @@
                 </thead>
 
                 <tbody>
+                {{each list}}
+                    <tr>
+                        <td>{{$value.routeName}}</td>
+                        <td>{{$value.startStation}}</td>
+                        <td>{{$value.startStation}}</td>
+                        <td>{{$value.seatNum}}</td>
+                        <td>{{$value.driverName}}</td>
+                        <td>{{$value.busNumber}}</td>
+                    </tr>
+                {{/each}}
                 <%--<tr>--%>
-                    <%--<td>{{linename}}</td>--%>
-                    <%--<td>{{start}}</td>--%>
-                    <%--<td>{{end}}</td>--%>
-                    <%--<td>{{sitman}}</td>--%>
-                    <%--<td>{{carman}}</td>--%>
-                    <%--<td>{{car}}</td>--%>
+                    <%--<td>线路1</td>--%>
+                    <%--<td>起点1</td>--%>
+                    <%--<td>终点1</td>--%>
+                    <%--<td>乘车人数1</td>--%>
+                    <%--<td>司机1</td>--%>
+                    <%--<td>车辆1</td>--%>
                 <%--</tr>--%>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
-                <tr>
-                    <td>线路1</td>
-                    <td>起点1</td>
-                    <td>终点1</td>
-                    <td>乘车人数1</td>
-                    <td>司机1</td>
-                    <td>车辆1</td>
-                </tr>
                 </tbody>
             </table>
         </div>
