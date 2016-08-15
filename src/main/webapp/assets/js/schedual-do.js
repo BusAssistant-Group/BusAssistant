@@ -6,7 +6,7 @@
  */
 
 $(function(){
-    my_table('2014/08/26', 'my_date', function(d) {
+    my_table('2016/08/26', 'my_date', function(d) {
         console.log(d.now_date)
     });
 

@@ -76,7 +76,7 @@
         排班管理(可调)
       </div>
 
-      <div><button class="btn btn-primary specialB" >特殊事件选择</button></div>
+      <div><button class="btn btn-primary specialB" >约束条件输入</button></div>
       <div id="my_date"></div>            <!--这里是挺好的一个日历-->
     </div>
   </div>
@@ -313,10 +313,10 @@
           <span class="type">司机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><button class="btn btn-primary carman-add">+</button></span></span>
         </div>
         <div class="carman-floor">
-          <div class="name">司机名称</div>
+          <div class="name">例：张三</div>
           <div class="flex-row">
             <div class="other flex-6">
-              <p><strong>备注:</strong>有事请假</p>
+              <p><strong>备注：</strong>有事请假</p>
             </div>
             <div class="operate flex-6">
               <div class="pull-right">
@@ -328,10 +328,10 @@
           </div>
         </div>
         <div class="carman-floor">
-          <div class="name">司机名称</div>
+          <div class="name">例：李四</div>
           <div class="flex-row">
             <div class="other flex-6">
-              <p><strong>备注:</strong>有事请假</p>
+              <p><strong>备注：</strong>有事请假</p>
             </div>
             <div class="operate flex-6">
               <div class="pull-right">
@@ -342,21 +342,21 @@
             </div>
           </div>
         </div>
-        <div class="carman-floor">
-          <div class="name">司机名称</div>
-          <div class="flex-row">
-            <div class="other flex-6">
-              <p><strong>备注:</strong>有事请假</p>
-            </div>
-            <div class="operate flex-6">
-              <div class="pull-right">
-                <i class="fa fa-pencil"></i>
-                <i class="fa fa-trash-o"></i>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
+        <%--<div class="carman-floor">--%>
+          <%--<div class="name">司机名称</div>--%>
+          <%--<div class="flex-row">--%>
+            <%--<div class="other flex-6">--%>
+              <%--<p><strong>备注:</strong>有事请假</p>--%>
+            <%--</div>--%>
+            <%--<div class="operate flex-6">--%>
+              <%--<div class="pull-right">--%>
+                <%--<i class="fa fa-pencil"></i>--%>
+                <%--<i class="fa fa-trash-o"></i>--%>
+              <%--</div>--%>
+              <%--<div class="clearfix"></div>--%>
+            <%--</div>--%>
+          <%--</div>--%>
+        <%--</div>--%>
       </div>
       <div class="car">
         <div class="type">
@@ -365,10 +365,10 @@
 
 
         <div class="carman-floor">
-          <div class="name">车牌号</div>
+          <div class="name">例：车牌号1</div>
           <div class="flex-row">
             <div class="other flex-6">
-              <p><strong>备注:</strong>请假了</p>
+              <p><strong>备注：</strong>车辆维修</p>
             </div>
             <div class="operate flex-6">
               <div class="pull-right">
@@ -381,10 +381,10 @@
         </div>
 
         <div class="carman-floor">
-          <div class="name">司机名称</div>
+          <div class="name">例：车牌号2</div>
           <div class="flex-row">
             <div class="other flex-6">
-              <p><strong>备注:</strong>有事请假</p>
+              <p><strong>备注：</strong>车辆维修</p>
             </div>
             <div class="operate flex-6">
               <div class="pull-right">
@@ -396,21 +396,21 @@
           </div>
         </div>
 
-        <div class="carman-floor">
-          <div class="name">司机名称</div>
-          <div class="flex-row">
-            <div class="other flex-6">
-              <p><strong>备注:</strong>有事请假</p>
-            </div>
-            <div class="operate flex-6">
-              <div class="pull-right">
-                <i class="fa fa-pencil"></i>
-                <i class="fa fa-trash-o"></i>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
+        <%--<div class="carman-floor">--%>
+          <%--<div class="name">司机名称</div>--%>
+          <%--<div class="flex-row">--%>
+            <%--<div class="other flex-6">--%>
+              <%--<p><strong>备注:</strong>有事请假</p>--%>
+            <%--</div>--%>
+            <%--<div class="operate flex-6">--%>
+              <%--<div class="pull-right">--%>
+                <%--<i class="fa fa-pencil"></i>--%>
+                <%--<i class="fa fa-trash-o"></i>--%>
+              <%--</div>--%>
+              <%--<div class="clearfix"></div>--%>
+            <%--</div>--%>
+          <%--</div>--%>
+        <%--</div>--%>
       </div>
     </div>
   </div>
