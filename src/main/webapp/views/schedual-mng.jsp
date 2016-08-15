@@ -92,7 +92,13 @@
                         <option selected value="">5月</option>
                     </select>
                 </div>
-                <div class="flex-3"><button class="btn btn-primary">确定</button></div>
+                <div class="flex-3">
+                    <button class="btn btn-primary">确定</button>
+                    <form action="${rootPath}/schedual/addshow" method="get">
+                        <input class="btn btn-primary" type="submit" value="安排下周计划"/>
+                    </form>
+                </div>
+
             </div>
             <div id="my_date"></div>            <!--这里是挺好的一个日历-->
         </div>
