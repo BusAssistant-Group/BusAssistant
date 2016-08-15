@@ -99,7 +99,7 @@
 
                             <div class="inpu-a pull-left">
                                 <a href="javascript:;" class="a-upload">
-                                    <input type="file" name="" id="">点击这里批量导入
+                                    <input type="file" name="file" id="">点击这里批量导入
                                 </a>
                             </div>
 

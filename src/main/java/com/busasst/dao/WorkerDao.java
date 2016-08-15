@@ -79,7 +79,7 @@ public class WorkerDao extends BaseDao {
      */
     public void updateX(String column,String oldvalue , String key , String value){
         String hql;
-        if(key.equals("workerName") || key.equals("group")){
+        if(key.equals("workerName") || key.equals("workerGroup") || key.equals("workerDept")){
             hql = "update WorkerEntity worker set worker."+key+"='"+value+"' where worker."+column+"="+oldvalue;
         }else {
             hql = "update WorkerEntity worker set worker."+key+"="+value+" where worker."+column+"="+oldvalue;
