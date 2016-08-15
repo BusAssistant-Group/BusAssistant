@@ -90,6 +90,10 @@ public class CarController {
             System.out.println(map.get(i));
             String col = map.get(i);
             String[] words = col.split("    ");
+            if(words.length<1){
+                break;
+            }
+            System.out.println("test::::::"+words[0]);
             carDao.insert(words[0],words[1],(int)Double.valueOf(words[2]).doubleValue(),
                     words[3],words[4],words[5]);
         }

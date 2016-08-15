@@ -96,6 +96,9 @@ public class WorkerController {
             System.out.println(map.get(i));
             String col = map.get(i);
             String[] words = col.split("    ");
+            if(words.length<1){
+                break;
+            }
             workerDao.insert((int)Double.valueOf(words[1]).doubleValue() , (int)Double.valueOf(words[4]).doubleValue(),
                     (int)Double.valueOf(words[5]).doubleValue() , words[0] ,words[2] , words[3]);
         }

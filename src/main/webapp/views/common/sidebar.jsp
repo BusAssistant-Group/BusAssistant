@@ -38,7 +38,7 @@
                 <c:if test="${activeId==5}">
                     <c:set var="class5" value="active"></c:set>
                 </c:if>
-                <li class="${class5}"><a href="${rootPath}/user/linemanage"><i class="fa fa-bar-chart"></i>统计分析</a></li>
+                <li class="${class5}"><a href="${rootPath}/static/list"><i class="fa fa-bar-chart"></i>统计分析</a></li>
 
                 <c:set var="class6" value=""></c:set>
                 <c:if test="${activeId==6}">
