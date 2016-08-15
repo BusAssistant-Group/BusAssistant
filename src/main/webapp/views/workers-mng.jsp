@@ -69,6 +69,15 @@
 
     <div class="contents flex-8">
         <div id="workers-mng">
+            <button id="new-worker" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_worker">添加新员工</button>
+
+            <div>
+                <form action="${rootPath}/worker/addByFile" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file">
+                    <input type="submit" value="提交">
+                </form>
+            </div>
+
             <table class="table">
                <thead>
                    <tr>
@@ -102,15 +111,6 @@
 
 
             </table>
-
-            <button id="new-worker" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_worker">添加新员工</button>
-
-            <div>
-                <form action="${rootPath}/worker/addByFile" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file">
-                    <input type="submit" value="提交">
-                </form>
-            </div>
         </div>
 
     </div>
