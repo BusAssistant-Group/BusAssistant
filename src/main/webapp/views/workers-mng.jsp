@@ -69,14 +69,63 @@
 
     <div class="contents flex-8">
         <div id="workers-mng">
-            <button id="new-worker" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_worker">添加新员工</button>
-
-            <div>
-                <form action="${rootPath}/worker/addByFile" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file">
-                    <input type="submit" value="提交">
-                </form>
+            <div class="header">
+                员工管理
             </div>
+            <%--<button id="new-worker" class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_new_worker">添加新员工</button>--%>
+
+            <%--<div>--%>
+                <%--<form action="${rootPath}/worker/addByFile" method="post" enctype="multipart/form-data">--%>
+                    <%--<input type="file" name="file">--%>
+                    <%--<input type="submit" value="提交">--%>
+                <%--</form>--%>
+            <%--</div>--%>
+
+            <div class="button-group">
+                <div class="clearfix"></div>
+
+                <button id="new-worker" class="btn btn-primary pull-left" type="button" data-toggle="modal" data-target="#add_new_worker">添加新员工+</button>
+
+                <div class="upload pull-left">
+                    <form action="${rootPath}/worker/addByFile" method="post" enctype="multipart/form-data">
+                        <!--<input type="file" name="file">-->
+                        <div class="clearfix"></div>
+                        <div class="input pull-left">
+                            <div class="clearfix"></div>
+
+                            <div class="inpu-a pull-left">
+                                <a href="javascript:;" class="a-upload">
+                                    <input type="file" name="" id="">点击这里批量导入
+                                </a>
+                            </div>
+
+                            <div class="tips pull-left"><strong class="showFileName"></strong></div>
+
+                        </div>
+                        <div class="submit pull-left">
+                            <input type="submit" value="提交" class="zyh-button-grey">
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <script>
+                $(".a-upload").on("change","input[type='file']",function(){
+                    console.log("改变了")
+                    var filePath=$(this).val();
+                    console.log("filePath"+filePath);
+
+                    $(".fileerrorTip").html("").hide();
+                    var arr=filePath.split('\\');
+                    var fileName=arr[arr.length-1];
+                    console.log("fileName"+fileName);
+                    $(".showFileName").html(fileName);
+                })
+            </script>
+
+
 
             <table class="table">
                <thead>
