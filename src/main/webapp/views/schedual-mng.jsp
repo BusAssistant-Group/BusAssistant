@@ -79,24 +79,36 @@
                 <div class="flex-2">
                     <select class="form-control" id="year">
                         <option selected value="">2016</option>
-                        <option selected value="">2015</option>
-                        <option selected value="">2014</option>
-                        <option selected value="">2013</option>
+                        <option value="">2015</option>
+                        <option value="">2014</option>
+                        <option value="">2013</option>
                     </select>
                 </div>
                 <div class="flex-3">
                     <select class="form-control" id="month">
                         <option selected value="">8月</option>
-                        <option selected value="">7月</option>
-                        <option selected value="">6月</option>
-                        <option selected value="">5月</option>
+                        <option value="">7月</option>
+                        <option value="">6月</option>
+                        <option value="">5月</option>
                     </select>
                 </div>
+                <%--<div class="flex-3">--%>
+                    <%--<button class="btn btn-primary">确定</button>--%>
+                    <%--<form action="${rootPath}/schedual/addshow" method="get">--%>
+                        <%--<input class="btn btn-primary" type="submit" value="安排下周计划"/>--%>
+                    <%--</form>--%>
+                <%--</div>--%>
                 <div class="flex-3">
-                    <button class="btn btn-primary">确定</button>
-                    <form action="${rootPath}/schedual/addshow" method="get">
-                        <input class="btn btn-primary" type="submit" value="安排下周计划"/>
-                    </form>
+                    <div class="clearfix"></div>
+                    <div class="pull-left" style="margin-right: 324px;margin-left: -149px;margin-top: 2px">
+                        <button class="btn btn-primary">确定</button>
+                    </div>
+                    <div class="pull-left">
+                        <form action="${rootPath}/schedual/addshow" method="get">
+                            <input class="btn btn-primary" type="submit" value="安排下周计划"/>
+                        </form>
+                    </div>
+
                 </div>
 
             </div>
